@@ -7,74 +7,106 @@
 
     {{!-- empieza carrusel --}}
 
-    {{!-- <div class="container section ">
-      <div class="col s5">
+
+        <div class="col s5">
         <div class="carousel carousel-slider">
-          <a.> <img src="/public/images/cover_IE.jpg" class="carousel-item"></a.>
-          <a.> <img src="/public/images/cover_IE.jpg"></a.>
-          <a.> <img src="/public/images/cover_IE.jpg"></a.>
+          <a class="carousel-item"> <img src="/public/images/cover_IE.jpg"></a>
+          <a class="carousel-item"> <img src="/public/images/cover_IE.jpg"></a>
+          <a class="carousel-item"> <img src="/public/images/cover_IE.jpg"></a>
         </div>
       </div>
-    </div> --}}
+    
     {{!-- termina carrusel --}}
-    <div class="col s5">
-      <p> <img src="/public/images/cover_IE_s.jpg"></p>
-    </div>
-
     <!-- Gitter Chat Link -->
 
-
-    <div class="col s6 offset-s6  ">
-
+      <div class="col s6 offset-s6  ">
       <div id="home-container center-align ">
         <div class="card text-right" style="width: 50%;">
           <div class="card-body center z-depth-5">
             <h2 class="card-title ">Innuentropia</h2>
 
             <p class="card-text">vacio</p>
-            <a href="/facebook" class="btn btn-dark blue">
+            <a href="/auth/facebook" class="btn btn-dark blue">
               Login with facebook
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="/google" class="btn red">
+            <a href="/auth/google" class="btn red">
               Login with google
               <i class="fab fa-google"></i>
             </a>
+
+            <p>or</p>
+
+            <p>Sign up with your email</p>
+            <form action="{{action}}" method="POST" style="width: 50%">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                  placeholder="Enter email" required>
+              </div>
+              {{#if register}}
+              <div class="form-group">
+                <label for="username">Name</label>
+                <input name="username" type="text" class="form-control" id="username" placeholder="Name" required>
+              </div>
+              {{/if}}
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                  required>
+              </div>
+              {{#if register}}
+              <div class="form-group">
+                <label for="number">Telephone Number</label>
+                <input placeholder="(55-1234-5678)" type="text" class="form-control" name="telephone_number" id="number" required>
+              </div>
+              {{/if}}
+              <button type="submit" class="btn btn-primary">{{title}}</button>
+            </form>
+
+
             <div class="container section center-align">
               <div class="row ">
                 <div class="input-field col s6 ">
                   <br>
-                  <input value="e-mail" id="emailTxt" type="text" class="validate">
-                  <label class="active" for="emailTxt">E-Mail</label>
+                    <label for="username">Username</label>
+                    <input type="text" name="username" class="form-control">
+                </div>
+              </div>
+              <div class="row ">
+                <div class="input-field col s6 ">
+                  {{!-- <br> --}}
+                    <label for="email">Email</label>
+                    <input type="text" name="email" class="form-control">
+                </div>
+              </div>
+
+              <div class="row ">
+                <div class="input-field col s6 ">
+                  {{!-- <br> --}}
+                  <label for="number">Telephone Number</label>
+                  <input placeholder="(55-1234-5678)" type="text" class="form-control" name="telephone_number" id="number" required>
                 </div>
               </div>
 
               <div class="row">
                 <div class="input-field col s6">
-                  <input value="Password" id="passwordTxt" type="text" class="validate">
-                  <label class="active" for="passwordTxt">Password</label>
+                  <label for="exampleInputPassword1">Password</label>
+                  <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                 </div>
               </div>
-
-              <button class="btn waves-effect waves-light grey" type="submit" name="action">Submit
+              <button class="btn waves-effect waves-light grey" type="submit" name="action">Signup
                 <i class="material-icons right">send</i>
               </button>
             </div>
           </div>
         </div>
       </div>
-
-
-
     </div>
-
   </div>
 </div>
 
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-<!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 <script>

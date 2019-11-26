@@ -21,7 +21,6 @@ const userSchema = new Schema(
     },
     role: {
       type: String,
-      required: true,
       enum: ["Actor", "Painter","Model", "Singer","Musician","Videographer","Digital Artist","Writter","Cinematographer","Designer"],
     },
     photoProfileURL: {
@@ -34,13 +33,6 @@ const userSchema = new Schema(
       required: true,
       trim: true
     },
-    tag:[String],
-    postsId: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Post"
-      }
-    ],
     frienshipsReqId:[
       {
         type: Schema.Types.ObjectId,
@@ -53,10 +45,22 @@ const userSchema = new Schema(
         ref: "User"
       }
     ],
+    postsId: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Post"
+      }
+    ],
     eventsId:[
       {
         type: Schema.Types.ObjectId,
         ref: "Event"        
+      }
+    ],
+    tags: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Tag"
       }
     ]
   },
