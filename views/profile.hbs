@@ -34,13 +34,16 @@
 <div id="chips" Etiquetas="col s12">
   <div>
     <p>Seccion de tags /lateral</p>
-    {{!-- <button>Add Tag </button> --}}
+    {{!-- inicia chips --}}
+    {{!-- <div class="chip">
+      Tag Name
+      <i class="close material-icons">close</i>
+    </div> --}}
+    <div class="chips"></div>
+    <div class="chips chips-initial"></div>
+    <div class="chips chips-placeholder"></div>
 
-    <div class="chips input-field">
-      <input class="custom-class">
-    </div>
-
-    <!-- Customizable input  -->
+    <!-- termina chips -->
 
 
   </div>
@@ -48,7 +51,6 @@
 </div>
 {{!-- chips del profile --}}
 <script>
-
 
   //chip initialization
   document.addEventListener('DOMContentLoaded', function () {
@@ -60,7 +62,8 @@
   var chip = {
     tag: 'chip content',
   };
-
   var instance = M.Chips.getInstance(elem);
+  }
+
 </script>
 {{!-- terminan chips --}}
