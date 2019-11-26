@@ -1,25 +1,66 @@
-<div>
-  <img src="/public/images/smoke.jpeg" alt="background ">
-  <h1>Profile Page</h1>
-  <img src="/public/images/dali.jpg" alt="profile imagen">
-</div>
-<div>
-  <p>Seccion de tags /lateral</p>
-  <button>Add Tag </button>
-</div>
-<div>
-  <h4>Seccion de proyectos</h4>
-  <p>Mostrar mis ultimos proyectos</p>
-  <button>Mis Proyectos </button>
+<div id=profile_page>
+  <img id=profile_bg src="/images/smoke.jpeg" alt="background ">
+  <h1 id=profile_h1> Profile Page</h1>
+  <img id=profile_pic src="/images/dali.jpg" alt="profile imagen">
 </div>
 
-<div>
-  <h4>Seccion de amigos</h4>
-  <p>Mostrar 3~5 amigos</p>
-  <button>Mis Amigos </button>
-</div>
 
-<div>
-  <h4/h4>Seccion de Eventos</h4> <p>Mostrar 3~5 eventos</p>
-    <button>Mis Eventos </button>
+<ul class="tabs tabs-fixed-width tab-demo z-depth-1 ">
+  <li class="tab"><a href="#projects">Proyectos</a></li>
+  <li class="tab"><a class="active" href="#friends">Amigos</a></li>
+  <li class="tab"><a href="#events">Eventos</a></li>
+  <li class="tab"><a href="#chips">Etiquetas</a></li>
+</ul>
+<div id="projects" class="col s12">
+  <div>
+    <h4>Seccion de proyectos</h4>
+    <p>Mostrar mis ultimos proyectos</p>
+    <button id=nuevoProy> New Project </button>
+  </div>
 </div>
+<div id="friends" class="col s12">
+  <div>
+    <h4>Seccion de amigos</h4>
+    <p>Mostrar 3~5 amigos</p>
+    <button>Add Friend </button>
+  </div>
+</div>
+<div id="events" class="col s12">
+  <div>
+    <h4/h4>Seccion de Eventos</h4> <p>Mostrar 3~5 eventos</p>
+      <button>New Event </button>
+  </div>
+</div>
+<div id="chips" Etiquetas="col s12">
+  <div>
+    <p>Seccion de tags /lateral</p>
+    {{!-- <button>Add Tag </button> --}}
+
+    <div class="chips input-field">
+      <input class="custom-class">
+    </div>
+
+    <!-- Customizable input  -->
+
+
+  </div>
+</div>
+</div>
+{{!-- chips del profile --}}
+<script>
+
+
+  //chip initialization
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.chips');
+    var instances = M.Chips.init(elems, options);
+  });
+
+  //chips object
+  var chip = {
+    tag: 'chip content',
+  };
+
+  var instance = M.Chips.getInstance(elem);
+</script>
+{{!-- terminan chips --}}
