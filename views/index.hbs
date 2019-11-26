@@ -1,2 +1,85 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="row">
+  <div class="col s12">
+    {{!-- Gigs, projects and community.
+    Gigs, projects and community.
+    Do more, stress less !
+    Artistic life made Easy --}}
+
+    {{!-- empieza carrusel --}}
+
+    {{!-- <div class="container section ">
+      <div class="col s5">
+        <div class="carousel carousel-slider">
+          <a.> <img src="/public/images/cover_IE.jpg" class="carousel-item"></a.>
+          <a.> <img src="/public/images/cover_IE.jpg"></a.>
+          <a.> <img src="/public/images/cover_IE.jpg"></a.>
+        </div>
+      </div>
+    </div> --}}
+    {{!-- termina carrusel --}}
+    <div class="col s5">
+      <p> <img src="/public/images/cover_IE_s.jpg"></p>
+    </div>
+
+    <!-- Gitter Chat Link -->
+
+
+    <div class="col s6 offset-s6  ">
+
+      <div id="home-container center-align ">
+        <div class="card text-right" style="width: 50%;">
+          <div class="card-body center z-depth-5">
+            <h2 class="card-title ">Innuentropia</h2>
+
+            <p class="card-text">vacio</p>
+            <a href="/facebook" class="btn btn-dark blue">
+              Login with facebook
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="/google" class="btn red">
+              Login with google
+              <i class="fab fa-google"></i>
+            </a>
+            <div class="container section center-align">
+              <div class="row ">
+                <div class="input-field col s6 ">
+                  <br>
+                  <input value="e-mail" id="emailTxt" type="text" class="validate">
+                  <label class="active" for="emailTxt">E-Mail</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s6">
+                  <input value="Password" id="passwordTxt" type="text" class="validate">
+                  <label class="active" for="passwordTxt">Password</label>
+                </div>
+              </div>
+
+              <button class="btn waves-effect waves-light grey" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.carousel');
+    var instances = M.Carousel.init(elems, { duration: 200, numVisible: 1 });
+  });
+</script>
