@@ -41,4 +41,16 @@ a {
   justify-content: space-evenly;
 }
 
+#profile_pic {
+  width: 200px;
+  height: 200px;
+  clip-path: circle(50% at 50% 50%);
+}
+
+#espacio_tags {
+  width: 70vw;
+  height: 200px;
+  background-color: lightseagreen;
+}
+
 /*# sourceMappingURL=style.css.map */
