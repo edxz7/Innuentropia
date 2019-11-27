@@ -6,6 +6,10 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+router.get('/signup-f', (req, res, next) => {
+  res.render('signupForm');
+});
+
 
 
 
