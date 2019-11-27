@@ -4,7 +4,7 @@ const passport = require('passport');
 exports.signupGet = (_, res) => {
   const config = {
     action: "/signup",
-    title: "Sign up",
+    title: "sign up",
     register: true
   };
   res.render("index", config);
@@ -34,14 +34,14 @@ exports.signupPost = async (req, res, next) => {
   })(req, res, next);
 };
 
-exports.loginGet = (req, res) => {
-  const templateConfig = {
-    action: "/login",
-    title: "Login",
-    register: false
-  };
-  res.render("index", templateConfig);
-};
+// exports.loginGet = (req, res) => {
+//   const templateConfig = {
+//     action: "/login",
+//     title: "Login",
+//     register: false
+//   };
+//   res.render("index", templateConfig);
+// };
 
 exports.loginPost = (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
@@ -53,7 +53,8 @@ exports.loginPost = (req, res, next) => {
         register: false,
         err: "Email or password is incorrect"
       };
-      return res.render("index", templateConfig);
+      res.redirect('/');
+      return res.redirect("index", templateConfig);
     }
     req.logIn(user, err => {
       if (err) return next(err);
@@ -82,7 +83,7 @@ exports.profileGet = async (req, res) => {
 exports.profilePost = async (req, res, next) => {
   let userUpdated;
   const { _id } = req.user;
-  const { username, telephone_number } = req.body;
+  // const { username, telephone_number } = req.body;
   if (req.file) {
     userUpdated = await User.findByIdAndUpdate(_id, {
       $set: { username, telephone_number, photoURL: req.file.secure_url }

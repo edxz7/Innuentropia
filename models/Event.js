@@ -9,12 +9,14 @@ const eventSchema = new Schema(
     content: {
       type: String,
       required: true,
+    },    
+    location: {
+      address: String,
+      coordinates: [Number]
     },
-    
-    photoProfileURL: {
-      type: String,
-      default:
-        "https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
     }
   },
   {

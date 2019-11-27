@@ -10,10 +10,15 @@ const postSchema = new Schema(
       type: String,
       required: true,
     },
-    photoProfileURL: {
+    creatorId : {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    },
+    imgName: String,
+    imgPath: {
       type: String,
       default:
-        "https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
+        "https://streetartnyc.org/wp-content/uploads/2016/06/Dasic-Fernandez-and-Rubin415-street-art-Greenpoint-NYC.jpg"
     }
   },
   {

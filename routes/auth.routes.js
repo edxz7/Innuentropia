@@ -12,7 +12,7 @@ const { isAuth } = require("../middlewares/index.middlewares");
 // Local Signup & Login
 router.get("/signup", isAuth, signupGet);
 router.post("/signup", signupPost);
-router.get("/login", isAuth, loginGet);
+// router.get("/login", isAuth, loginGet);
 router.post("/login", loginPost);
 
 // Facebook Login

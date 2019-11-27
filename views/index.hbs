@@ -1,94 +1,3 @@
-<<<<<<< HEAD
-<div class="row">
-  <div class="col s12">
-    {{!-- Gigs, projects and community.
-    Gigs, projects and community.
-    Do more, stress less !
-    Artistic life made Easy --}}
-
-    {{!-- empieza carrusel --}}
-
-
-        <div class="col s5">
-        <div class="carousel carousel-slider">
-          <a class="carousel-item"> <img src="/public/images/cover_IE.jpg"></a>
-          <a class="carousel-item"> <img src="/public/images/cover_IE.jpg"></a>
-          <a class="carousel-item"> <img src="/public/images/cover_IE.jpg"></a>
-        </div>
-      </div>
-    
-    {{!-- termina carrusel --}}
-    <!-- Gitter Chat Link -->
-
-      <div class="col s6 offset-s6  ">
-      <div id="home-container center-align ">
-        <div class="card text-right" style="width: 50%;">
-          <div class="card-body center z-depth-5">
-            <h2 class="card-title ">Innuentropia</h2>
-
-            <p class="card-text">vacio</p>
-            <a href="/auth/facebook" class="btn btn-dark blue">
-              Login with facebook
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="/auth/google" class="btn red">
-              Login with google
-              <i class="fab fa-google"></i>
-            </a>
-
-            <p>or</p>
-
-            <p>Sign up with your email</p>
-            <form action="{{action}}" method="POST" style="width: 50%">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                  placeholder="Enter email" required>
-              </div>
-              {{#if register}}
-              <div class="form-group">
-                <label for="username">Name</label>
-                <input name="username" type="text" class="form-control" id="username" placeholder="Name" required>
-              </div>
-              {{/if}}
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
-                  required>
-              </div>
-              {{#if register}}
-              <div class="form-group">
-                <label for="number">Telephone Number</label>
-                <input placeholder="(55-1234-5678)" type="text" class="form-control" name="telephone_number" id="number" required>
-              </div>
-              {{/if}}
-              <button type="submit" class="btn btn-primary">{{title}}</button>
-            </form>
-
-
-            <div class="container section center-align">
-              <div class="row ">
-                <div class="input-field col s6 ">
-                  <br>
-                    <label for="username">Username</label>
-                    <input type="text" name="username" class="form-control">
-                </div>
-              </div>
-              <div class="row ">
-                <div class="input-field col s6 ">
-                  {{!-- <br> --}}
-                    <label for="email">Email</label>
-                    <input type="text" name="email" class="form-control">
-                </div>
-              </div>
-
-              <div class="row ">
-                <div class="input-field col s6 ">
-                  {{!-- <br> --}}
-                  <label for="number">Telephone Number</label>
-                  <input placeholder="(55-1234-5678)" type="text" class="form-control" name="telephone_number" id="number" required>
-                </div>
-=======
 <div class="container">
   <div class="row">
     <div class="col s6"> {{!--  soy el primero--}}
@@ -109,66 +18,95 @@
           <h2 class="card-title ">Innuentropia</h2>
 
           <p class="card-text"></p>
-          <a href="/facebook" class="btn btn-dark blue">
+          <a href="/auth/facebook" class="btn btn-dark blue">
             Login with facebook
             <i class="fab fa-facebook-f"></i>
           </a>
-          <a href="/google" class="btn red">
+          <a href="/auth/google" class="btn red">
             Login with google
             <i class="fab fa-google"></i>
           </a>
           <div class="container section center-align">
-            <div class="row ">
-              <div class="input-field col s6 ">
-                <br>
-                <input value="e-mail" id="emailTxt" type="text" class="validate">
-                <label class="active" for="emailTxt">E-Mail</label>
->>>>>>> 5c5403c848944a2621c85f63ced8a0f9358504fb
+          <form action="/signup" method="POST" >
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                  placeholder="Enter email" required>
               </div>
-            </div>
 
-<<<<<<< HEAD
-              <div class="row">
-                <div class="input-field col s6">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
-                </div>
+              <div class="form-group">
+                <label for="username">username</label>
+                <input name="username" type="text" class="form-control" id="username" placeholder="Name" required>
               </div>
-              <button class="btn waves-effect waves-light grey" type="submit" name="action">Signup
-                <i class="material-icons right">send</i>
-              </button>
-=======
-            <div class="row">
-              <div class="input-field col s6">
-                <input value="Password" id="passwordTxt" type="text" class="validate">
-                <label class="active" for="passwordTxt">Password</label>
-              </div>
->>>>>>> 5c5403c848944a2621c85f63ced8a0f9358504fb
-            </div>
 
-            <button class="btn waves-effect waves-light grey" type="submit" name="action">Submit
-              <i class="material-icons right">send</i>
-            </button>
+              <div class="form-group">
+                <label for="exampleInputPassword">Password</label>
+                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="number">Telephone Number</label>
+                <input placeholder="(55-1234-5678)" value="55-1234-5678" type="text" class="form-control" name="telephone_number" id="number" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Sign up</button>
+            </form>
+             {{#if err}}
+            <div class="alert alert-danger" role="alert">
+              Email or password is incorrect
+            </div>
+            {{/if}}
+           <!-- Modal Trigger -->
+            <a class="waves-effect waves-light btn orange modal-trigger" href="#login">Login</a>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
-<<<<<<< HEAD
-=======
+
+
+  <!-- Modal Structure -->
+  <div class="modal" id="login">
+    <div class="modal-content">
+        {{#if err}}
+        <div class="alert alert-danger" role="alert">
+          {{err}}
+        </div>
+        {{/if}}
+        <form action="/login" method="POST">
+          <div class="form-group">
+            <label for="formGroup">email</label>
+            <input name="email" type="text" class="form-control" id="formGroupExampleInput" placeholder="email"
+              required>
+          </div>
+          <div class="form-group">
+              <label for="formGroup">Password</label>
+              <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                required>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="modal-close waves-effect waves-green btn-flat" data-dismiss="modal"> Login</button>
+          </div>
+        </form>
+    </div>
+  </div>
+
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.carousel');
-    var instances = M.Carousel.init(elems, { duration: 200, numVisible: 1 });
+
+
+    let elements = document.querySelectorAll('.modal');
+    let ins = M.Modal.init(elements);
   });
 </script>
 
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
->>>>>>> 5c5403c848944a2621c85f63ced8a0f9358504fb
 
+<!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 <script>
@@ -177,7 +115,4 @@
     var instances = M.Carousel.init(elems, { duration: 200, numVisible: 3 });
   });
 </script>
-{{!-- Gigs, projects and community.
-    Gigs, projects and community.
-    Do more, stress less !
-    Artistic life made Easy --}}
+

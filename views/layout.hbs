@@ -20,17 +20,20 @@
   {{!-- termina carrusel --}}
   </head>
   <body>
+
     <nav>
-        <div>
-          <a href="/">home</a>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">Logo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
           {{#if logged}}
-            <a href="/new">Create Post</a>
-            <a href="/logout">logout</a>
-          {{else}}
-            <a href="/signup">signup</a>
-            <a href="/login">login</a>
+          <li><a href="/post">Create Post</a></li>
+          <li><a href="/event">Create Event</a></li>
+          <li><a href="/logout">logout</a></li>
+          {{!-- {{else}}
+          <li><a href="/login">login</a></li> --}}
           {{/if}}
-        </div>
+        </ul>
+      </div>
     </nav>
 
     {{{body}}}

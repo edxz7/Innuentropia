@@ -1,48 +1,74 @@
-<div class="profile-container">
-  <div class="card text-center" style="width: 18rem;">
-    <img src="{{user.photoURL}}" class="card-img-top" alt="{{user.username}}">
-    <div class="card-body">
-      <h5 class="card-title">{{user.username}}</h5>
-      <p class="card-text">
-        {{user.email}}
-      </p>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Edit
-      </button>
-    </div>
-  </div>
-  <div class="card text-center" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Favors</h5>
-      <p class="card-text">
-        {{#if user.favors.length}}
-        {{#each user.favors as |favor|}}
-        {{#if favor.isActive}}
-        <div class="alert alert-success" role="alert">
-          {{!-- no tiene sentido --}}
-          {{!-- hacemos ../ para salir del scope, y tener el contexto correcto --}}
-          <a style="color: #155724" href="/{{../user.role}}/favor/{{favor._id}}">
-            {{favor.description}}
-          </a>
-        </div>
-        {{else}}
-        <div class="alert alert-dark" role="alert">
-          {{favor.description}}
-        </div>
-        {{/if}}
-        {{/each}}
-        {{else}}
-        You don't have favors yet
-        {{/if}}
-      </p>
-    </div>
+<div id=profile_page>
+  <img id=profile_bg src="/images/smoke.jpeg" alt="background ">
+  <h1 id=profile_h1> Profile Page</h1>
+  <img id=profile_pic src="/images/dali.jpg" alt="profile imagen">
+</div>
+
+
+<ul class="tabs tabs-fixed-width tab-demo z-depth-1 ">
+  <li class="tab"><a href="#projects">Proyectos</a></li>
+  <li class="tab"><a class="active" href="#friends">Amigos</a></li>
+  <li class="tab"><a href="#events">Eventos</a></li>
+  <li class="tab"><a href="#chips">Etiquetas</a></li>
+</ul>
+<div id="projects" class="col s12">
+  <div>
+    <h4>Seccion de proyectos</h4>
+    <p>Mostrar mis ultimos proyectos</p>
+    <button id=nuevoProy> New Project </button>
   </div>
 </div>
+<div id="friends" class="col s12">
+  <div>
+    <h4>Seccion de amigos</h4>
+    <p>Mostrar 3~5 amigos</p>
+    <button>Add Friend </button>
+  </div>
+</div>
+<div id="events" class="col s12">
+  <div>
+    <h4/h4>Seccion de Eventos</h4> <p>Mostrar 3~5 eventos</p>
+      <button>New Event </button>
+  </div>
+</div>
+<div id="chips" Etiquetas="col s12">
+  <div>
+    <p>Seccion de tags /lateral</p>
+    {{!-- inicia chips --}}
+    {{!-- <div class="chip">
+      Tag Name
+      <i class="close material-icons">close</i>
+    </div> --}}
+    <div class="chips"></div>
+    <div class="chips chips-initial"></div>
+    <div class="chips chips-placeholder"></div>
+
+    <!-- termina chips -->
+
+
+  </div>
+</div>
+</div>
+{{!-- chips del profile --}}
+<script>
+  //chip initialization
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.chips');
+    var instances = M.Chips.init(elems, options);
+  });
+  //chips object
+  var chip = {
+    tag: 'chip content',
+  };
+  var instance = M.Chips.getInstance(elem);
+  }
+</script>
+{{!-- terminan chips --}}
 
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+{{!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -79,7 +105,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
 <script>
   document.querySelector('input[name="photoURL"]').addEventListener('change', (e) => {

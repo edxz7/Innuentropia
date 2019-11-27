@@ -66,15 +66,18 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+// app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require("./routes/index");
 const authRoutes = require("./routes/auth.routes");
 const profileRoutes = require("./routes/profile.routes");
+const eventRoutes = require("./routes/event.routes")
 // const dogooderRouetes = require("./routes/dogooderRoutes");
 app.use("/", checkUser, index);
 app.use("/", authRoutes);
 app.use("/", isAuth, profileRoutes);
+app.use("/", isAuth, eventRoutes)
+
 // app.use("/do-gooder", isAuth, dogooderRouetes);
 
 module.exports = app;
