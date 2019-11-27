@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,20 +6,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Innuentropia (layout)</title>
+  <title>Innuentropia</title>
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-  {{!-- empieza carrusel --}}
   <meta name="viewport" content="width = device-width, initial-scale = 1">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
-  </script>
-  {{!-- termina carrusel --}}
-  </head>
+  <link rel="stylesheet" href="../stylesheets/style.css" />
+</head>
   <body>
 
     <nav>
@@ -29,20 +23,21 @@
           <li><a href="/post">Create Post</a></li>
           <li><a href="/event">Create Event</a></li>
           <li><a href="/logout">logout</a></li>
-          {{!-- {{else}}
-          <li><a href="/login">login</a></li> --}}
+          {{else}}
+          <li><a href="/login">login</a></li>
           {{/if}}
         </ul>
       </div>
     </nav>
 
     {{{body}}}
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="/javascripts/script.js"></script>
-  </body>
+    
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script type="application/javascript" src="../javascripts/{{script}}.js"></script>
+
+</body>
 
 </html>
