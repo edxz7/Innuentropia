@@ -29,7 +29,9 @@
 <div id="events" class="col s12">
   <div>
     <h4/h4>Seccion de Eventos</h4> <p>Mostrar 3~5 eventos</p>
-      <button>New Event </button>
+               <!-- Modal Trigger -->
+      <a class="waves-effect waves-light btn orange modal-trigger" href="#event">New Event</a>
+      {{!-- <button> <a href="/event/create">New Event</a> </button> --}}
   </div>
 </div>
 <div id="chips" Etiquetas="col s12">
@@ -56,68 +58,96 @@
         <div id="test4" class="col s12">Test 4</div>
       </div>
     </div>{{!--fin de tabs   --}}
-
-
   </div>
 </div>
 </div>
+
 {{!-- chips del profile --}}
 <script>
   //chip initialization
   document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.chips');
-    var instances = M.Chips.init(elems, options);
+    let elems = document.querySelectorAll('.chips');
+    let instances = M.Chips.init(elems, options);
   });
   //chips object
-  var chip = {
+  let chip = {
     tag: 'chip content',
   };
-  var instance = M.Chips.getInstance(elem);
+  let instance = M.Chips.getInstance(elem);
   }
 </script>
 {{!-- terminan chips --}}
 
 
 
-<!-- Modal -->
-{{!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <!-- Modal Structure -->
+  <div class="modal" id="event">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit profile</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="/needy/profile" method="POST" enctype="multipart/form-data">
-          <div class="form-group">
-            <label for="formGroupExampleInput">Username</label>
-            <input name="username" type="text" class="form-control" id="formGroupExampleInput" value="{{user.username}}"
-              required>
-          </div>
-          <div class="form-group">
-            <label for="formGroupExampleInput2">Telephone Number</label>
-            <input name="telephone_number" type="text" class="form-control" id="formGroupExampleInput2"
-              value="{{user.telephone_number}}" required>
-          </div>
-          <div class="form-group">
-            <div class="custom-file">
-              <input name="photoURL" type="file" class="custom-file-input" id="validatedCustomFile">
-              <label class="custom-file-label" for="validatedCustomFile">
-                <span>Choose file...</span>
-              </label>
+      <h3>Create a new awesome event</h3>
+      <div class="row">
+        <br>
+        <form class="col s12" method="POST" action="/user/create">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="title" type="text" name="name">
+              <label for="title">Event Name</label>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-primary">Save changes</button>
+            <div class="input-field col s12">
+              <input id="description" type="text" name="description">
+              <label for="description">Event Description</label>
             </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <div id='map'></div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="lng" type="text" name="location[coordinates][0]" hidden>
+              </div>
+              <div class="input-field col s6">
+                <input id="lat" type="text" name="location[coordinates][1]" hidden>
+              </div>
+              <div class="input-field col s6">
+                <input id="address" type="text" name="location[address]" hidden>
+              </div>
+            </div>
+          </div>
+          <button class="btn waves-effect waves-light red" type="submit">Create
+            <i class="material-icons right">send</i>
+          </button>
         </form>
       </div>
     </div>
   </div>
-</div> --}}
+
+{{!-- Mapbox --}}
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiZGl1cml2aiIsImEiOiJjanAxdjA2cTQwMGp1M2tvYzZmZGp3bWc3In0.4cZEyLkU2ikqx_wb4A1z8A';
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11'
+  });
+  const geoCoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken
+  })
+  map.addControl(geoCoder)
+  geoCoder.on('results', (results) => {
+    document.querySelector('#address').value = results.features[0].place_name
+    document.querySelector('#lat').value = results.features[0].center[1];
+    document.querySelector('#lng').value = results.features[0].center[0];
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let elements = document.querySelectorAll('.modal');
+    let ins = M.Modal.init(elements);
+  });
+</script>
+
+
+
 
 <script>
   document.querySelector('input[name="photoURL"]').addEventListener('change', (e) => {

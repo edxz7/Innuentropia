@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.carousel');
-    var instances = M.Carousel.init(elems);
+    let elems = document.querySelectorAll('.carousel');
+    let instances = M.Carousel.init(elems);
   });
 
 

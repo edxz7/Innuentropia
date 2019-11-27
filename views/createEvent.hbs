@@ -1,23 +1,37 @@
-  
-<h1>Create</h1>
-<form action="/create" method="POST">
-
-    <label for="name">Name</label>
-    <input type="text" name="name">
-    <label for="location">Location</label>
-    <input id="lng" type="text" name="location[coordinates][0]" placeholder="longitud">
-    <input id="lat" type="text" name="location[coordinates][1]"placeholder="latitud">
-    <label for="address">Address</label>
-    <input id="address" type="text" name="location.address" placeholder="address">
-    <select name="placeType" id="">
-        <option value="coffee shop">coffee shop</option>
-        <option value="bookstore">bookstore</option>
-    </select>
-    <input type="submit" label="submit">
-</form>
-
-<div id='map'></div>
-
+<div class="row">
+  <br>
+  <form class="col s12" method="POST" action="/user/create">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="title" type="text" name="name">
+        <label for="title">Event Name</label>
+      </div>
+      <div class="input-field col s12">
+        <input id="description" type="text" name="description">
+        <label for="description">Event Description</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <div id='map'></div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="lng" type="text" name="location[coordinates][0]" hidden>
+        </div>
+        <div class="input-field col s6">
+          <input id="lat" type="text" name="location[coordinates][1]" hidden>
+        </div>
+        <div class="input-field col s6">
+          <input id="address" type="text" name="location[address]" hidden>
+        </div>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light red" type="submit">Create
+      <i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>
 
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoiZGl1cml2aiIsImEiOiJjanAxdjA2cTQwMGp1M2tvYzZmZGp3bWc3In0.4cZEyLkU2ikqx_wb4A1z8A';

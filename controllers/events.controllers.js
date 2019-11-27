@@ -31,7 +31,7 @@ exports.editEventPost = (req, res) => {
   const { id } = req.params;
   console.log({...req.body})
   Place.findByIdAndUpdate(id, {	$set: {...req.body}}, { new: true })
-    .then((event) => res.redirect(`/places/${event._id}/edit`))
+    .then((event) => res.redirect(`/event/${event._id}/edit`))
     .catch((err) => console.log(err));
 };
   
