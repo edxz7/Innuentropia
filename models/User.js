@@ -14,6 +14,10 @@ const userSchema = new Schema(
       required: true,
       unique: true
     },
+    description: {
+      type:String,
+      default:"Describe yourself and things you like."
+    },
     email: {
       type: String,
       required: true,
@@ -26,12 +30,10 @@ const userSchema = new Schema(
     },
     photoProfileURL: {
       type: String,
-      default:
-        "https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
+      default:"/images/dali_small.png"
     },
     telephone_number: {
       type: String,
-      required: true,
       trim: true
     },
     frienshipsReqId:[
@@ -58,12 +60,7 @@ const userSchema = new Schema(
         ref: "Event"        
       }
     ],
-    tags: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Tag"
-      }
-    ]
+    tags: [String]
   },
   {
     timestamps: true,

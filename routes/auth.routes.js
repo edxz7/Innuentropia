@@ -3,7 +3,6 @@ const passport = require("../config/passport");
 const {
   signupGet,
   signupPost,
-  loginGet,
   loginPost,
   logOut
 } = require("../controllers/auth.controllers");

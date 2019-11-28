@@ -8,17 +8,17 @@ router.get('/', (req, res, next) => {
   });
 });
 
-router.get('/signup-f', (req, res, next) => {
-  res.render('signupForm', {
-    script: 'signupForm'
-  });
-});
+// router.get('/signup-f', (req, res, next) => {
+//   res.render('signupForm', {
+//     script: 'signupForm'
+//   });
+// });
 
-router.post("/profile", (req, res, next) => {
-  res.render("profile", {
-    script: "profile"
-  });
-});
+// router.post("/profile", (req, res, next) => {
+//   res.render("profile", {
+//     script: "profile"
+//   });
+// });
 
 
 
@@ -52,8 +52,8 @@ router.post("/profile", (req, res, next) => {
 
 
 //pruebas front//
-router.get('/profile', (req, res, next) => {
-  res.render('profile');
-});
+// router.get('/profile', (req, res, next) => {
+//   res.render('profile');
+// });
 
 module.exports = router;

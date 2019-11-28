@@ -7,7 +7,7 @@ const { profileGet, profilePost } = require("../controllers/auth.controllers");
 //   activeGet,
 //   activePost
 // } = require("../controllers/dogooder.controllers");
-
+// Edit profile
 router.get("/profile", profileGet);
 router.post("/profile", uploadCloud.single("photoURL"), profilePost);
 

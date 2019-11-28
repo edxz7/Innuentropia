@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const Event = require("../models/Event");
 const passport = require('passport');
 //Local signup
 exports.signupGet = (_, res) => {
@@ -73,11 +74,9 @@ exports.logOut = (req, res, next) => {
 exports.profileGet = async (req, res) => {
   const { _id } = req.user;
   const user = await User.findById(_id)
-  // .populate({
-  //   path: "favors",
-  //   options: { sort: { createdAt: -1 } }
-  // });
-  res.render("profile", { user });
+  const events = await Event.find().populate("author").sort({_id:1}).limit(3);
+
+  res.render("profile", { user , events});
 };
 
 exports.profilePost = async (req, res, next) => {
@@ -94,5 +93,5 @@ exports.profilePost = async (req, res, next) => {
     });
   }
   req.user = userUpdated;
-  res.redirect(`/profile`);
+  res.redirect(`/profile/${userUpdated._id}`);
 };

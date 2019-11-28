@@ -8,8 +8,7 @@
         <p>{{event.description}}</p>
       </div>
       <div class="card-action">
-        <a class="waves-effect waves-light btn orange modal-trigger" href="#/event/{{event._id}}"> Details </a>
-        {{!-- <a href="/event/{{event._id}}">Details</a> --}}
+        <a class="waves-effect waves-light btn orange modal-trigger" href="/event/{{event._id}}"> Details </a>
         <a href="/{{event.author._id}}">Published: {{event.author.username}}</a>
       </div>
     </div>
@@ -18,32 +17,3 @@
 {{/each}}
 
 
-
-{{!-- Modals --}}
-
-
-{{!-- Mapbox --}}
-{{!-- <script>
-  mapboxgl.accessToken = 'pk.eyJ1IjoiZGl1cml2aiIsImEiOiJjanAxdjA2cTQwMGp1M2tvYzZmZGp3bWc3In0.4cZEyLkU2ikqx_wb4A1z8A';
-  const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11'
-  });
-  const geoCoder = new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken
-  })
-  map.addControl(geoCoder)
-  geoCoder.on('results', (results) => {
-    document.querySelector('#address').value = results.features[0].place_name
-    document.querySelector('#lat').value = results.features[0].center[1];
-    document.querySelector('#lng').value = results.features[0].center[0];
-  });
-</script> --}}
-
-{{!-- Modal Engine --}}
-{{!-- <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    let elements = document.querySelectorAll('.modal');
-    let ins = M.Modal.init(elements);
-  });
-</script> --}}
