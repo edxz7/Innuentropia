@@ -12,7 +12,7 @@
   <meta name="viewport" content="width = device-width, initial-scale = 1">
   <link rel="stylesheet" href="../stylesheets/style.css" />
 
-    {{!-- MapBox --}}
+  {{!-- MapBox --}}
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
   <link rel='stylesheet'
     href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.css'
@@ -22,30 +22,31 @@
     src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.min.js'></script>
 
 </head>
-  <body>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="/feed" class="brand-logo">Logo</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          {{#if logged}}
-          <li><a href="/profile">Profile</a></li>
-          {{!-- <li><a href="/post">Create Post</a></li> --}}
-          {{!-- <li><a class="waves-effect waves-light btn orange modal-trigger" href="#event">Create Event</a></li> --}}
-          <li><a href="/logout">logout</a></li>
-          {{!-- {{else}}
+
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/feed" class="brand-logo"><img src="/images/logo innuentropia_small.png" width="175" height="auto"></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        {{#if logged}}
+        <li><a href="/profile">Profile</a></li>
+        <li><a class="waves-effect waves-light btn orange modal-trigger" href="#newpost">Create Post</a></li>
+        {{!-- <li><a class="waves-effect waves-light btn orange modal-trigger" href="#event">Create Event</a></li> --}}
+        <li><a href="/logout">logout</a></li>
+        {{!-- {{else}}
           <li><a href="/login">login</a></li> --}}
-          {{/if}}
-        </ul>
-      </div>
-    </nav>
-    {{{body}}}
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+  {{{body}}}
 
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script type="application/javascript" src="../javascripts/{{script}}.js"></script>
 
 
-{{!-- Modals --}}
+  {{!-- Modals --}}
 
 {{!-- Event --}}
   {{!-- <div class="modal" id="event">
@@ -88,6 +89,81 @@
     </div>
   </div> --}}
 
+  {{!-- Event New Project --}}
+  <div class="modal" id="newproject">
+    <div class="modal-content">
+      <h3>Create a new awesome project</h3>
+      <div class="row">
+        <br>
+        <form class="col s12" method="POST" action="/event/create">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="title" type="text" name="title">
+              <label for="title">Project Name</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="description" type="text" name="description">
+              <label for="description">Project Description</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="status_project" type="text" name="status_project">
+              <label for="status_project">Project Status</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="people_needed" type="text" name="people_needed">
+              <label for="people_needed">Talents for the project</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="ending_date" type="date" name="ending_date">
+              <label for="ending_date">Project ending date</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="external_link" type="url" name="external_link">
+              <label for="external_link">External link</label>
+            </div>
+          </div>
+          <button class="btn waves-effect waves-light red" type="submit">Create
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  {{!-- Event New Post --}}
+  <div class="modal" id="newpost">
+    <div class="modal-content">
+      <h3>Create a brand new post</h3>
+      <div class="row">
+        <br>
+        <form class="col s12" method="POST" action="/event/create">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="title" type="text" name="title">
+              <label for="title">Post Title</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="description" type="text" name="description">
+              <label for="description">Post Description</label>
+            </div>
+            <div class="col s12">
+              <form action="/new/create" method="POST" enctype="multipart/form-data">
+                <div>
+                  <label for="photo"></label>
+                  <input type="file" name="photo" id="photo" accept="image/*">
+                </div>
+              </form>
+            </div>
+          </div>
+          <button class="btn waves-effect waves-light red" type="submit">Create
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
 
 {{!-- Mapbox --}}
 {{!-- <script>

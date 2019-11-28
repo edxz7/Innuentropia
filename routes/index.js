@@ -20,6 +20,12 @@ router.get('/', (req, res, next) => {
 //   });
 // });
 
+router.post("/newProject", (req, res, next) => {
+  res.render("newProject", {
+    script: "newProject"
+  });
+});
+
 
 
 

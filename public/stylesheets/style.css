@@ -23,5 +23,9 @@ body {
   align-items: flex-end;
   justify-content: space-evenly;
   padding: 50px; }
+#profile_pic {
+  width: 200px;
+  height: 200px;
+  clip-path: circle(50% at 50% 50%); }
 
 /*# sourceMappingURL=style.css.map */
