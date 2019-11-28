@@ -1,0 +1,38 @@
+<h2>{{post.title}}</h2>
+    <h3>Edit your awesome project</h3>
+    <div class="row">
+      <br>
+      <form class="col s12" method="POST" action="/project/{{project._id}}/edit">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="title" type="text" name="title">
+            <label for="title">Project Name</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="description" type="text" name="description">
+            <label for="description">Project Description</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="status_project" type="text" name="status_project">
+            <label for="status_project">Project Status</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="people_needed" type="text" name="req_skills">
+            <label for="people_needed">Talents for the project</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="ending_date" type="date" name="ending_date">
+            <label for="ending_date">Estimated project ending date</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="external_link" type="url" name="external_link">
+            <label for="external_link">External project link</label>
+          </div>
+        </div>
+        <button class="btn waves-effect waves-light red" type="submit">Create
+          <i class="material-icons right">send</i>
+        </button>
+        <a href="/profile">Go back</a>
+      </form>
+    </div>
+  </div>
