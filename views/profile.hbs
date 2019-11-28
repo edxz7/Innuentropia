@@ -17,7 +17,7 @@
             <p>{{user.description}}</p>
           </div>
           <button>Edit Profile</button>
-          <button class="right">Follow Me</button>
+          <button class="right" id="follow_btn">Follow Me</button>
         </div>
       </div>
 
@@ -35,7 +35,7 @@
       {{!-- Events profile --}}
       <div class="col s6 ">
         <h3> Your Latest Event</h3>
-              <!-- Modal Trigger -->
+        <!-- Modal Trigger -->
         <a class="waves-effect waves-light btn orange modal-trigger" href="#create-event">Create Event</a>
         {{#each events as |event|}}
         <div class="row">
@@ -46,11 +46,11 @@
                 <p>{{event.description}}</p>
               </div>
               <div class="card-action">
-                 <a class="waves-effect waves-light modal-trigger" href="/event/{{event._id}}/edit">edit</a>
+                <a class="waves-effect waves-light modal-trigger" href="/event/{{event._id}}/edit">edit</a>
                 <a href="/event/{{event._id}}/delete">Delete</a>
               </div>
             </div>
-          </div>  
+          </div>
         </div>
         {{/each}}
       </div>
@@ -91,48 +91,48 @@
 
   <!-- Modal Structure -->
   {{!-- Create Event --}}
-<div class="modal" id="create-event">
-  <div class="modal-content">
-    <h1>Create</h1>
-    <form action="/event/create" method="POST">
-      <label for="name">Event Title</label>
-      <input type="text" name="title">
-      <label for="name">Event Description</label>
-      <input type="text" name="description">
-      <label for="location">Location</label>
-      <input id="lng" type="text" name="location[coordinates][0]" placeholder="longitud" hidden>
-      <input id="lat" type="text" name="location[coordinates][1]"placeholder="latitud" hidden>
-      <label for="address">Address</label>
-      <input id="address" type="text" name="location.address" placeholder="address" hidden>
-      <select name="placeType" id="">
+  <div class="modal" id="create-event">
+    <div class="modal-content">
+      <h1>Create</h1>
+      <form action="/event/create" method="POST">
+        <label for="name">Event Title</label>
+        <input type="text" name="title">
+        <label for="name">Event Description</label>
+        <input type="text" name="description">
+        <label for="location">Location</label>
+        <input id="lng" type="text" name="location[coordinates][0]" placeholder="longitud" hidden>
+        <input id="lat" type="text" name="location[coordinates][1]" placeholder="latitud" hidden>
+        <label for="address">Address</label>
+        <input id="address" type="text" name="location.address" placeholder="address" hidden>
+        <select name="placeType" id="">
           <option value="coffee shop">coffee shop</option>
           <option value="bookstore">bookstore</option>
-      </select>
-      <div id='map'></div>
-      <input type="submit" label="submit">
-    </form>
-    
-  </div>
-</div>  
+        </select>
+        <div id='map'></div>
+        <input type="submit" label="submit">
+      </form>
 
-<script>
-  mapboxgl.accessToken = 'pk.eyJ1IjoiZGl1cml2aiIsImEiOiJjanAxdjA2cTQwMGp1M2tvYzZmZGp3bWc3In0.4cZEyLkU2ikqx_wb4A1z8A';
-  const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [-99.160397,19.408481],
-    zoom: 15
-  });
-  const geoCoder = new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken
-  })
-  map.addControl(geoCoder)
-  geoCoder.on('results', (results) => {
-    document.querySelector('#address').value = results.features[0].place_name
-    document.querySelector('#lat').value = results.features[0].center[1];
-    document.querySelector('#lng').value = results.features[0].center[0];
-  });
-</script>
+    </div>
+  </div>
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGl1cml2aiIsImEiOiJjanAxdjA2cTQwMGp1M2tvYzZmZGp3bWc3In0.4cZEyLkU2ikqx_wb4A1z8A';
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [-99.160397, 19.408481],
+      zoom: 15
+    });
+    const geoCoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken
+    })
+    map.addControl(geoCoder)
+    geoCoder.on('results', (results) => {
+      document.querySelector('#address').value = results.features[0].place_name
+      document.querySelector('#lat').value = results.features[0].center[1];
+      document.querySelector('#lng').value = results.features[0].center[0];
+    });
+  </script>
   {{!-- <div class="modal" id="create-event">
     <div class="modal-content">
       <h3>Create a new awesome event</h3>
@@ -177,20 +177,20 @@
 <script>
   mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zZWNhem9ybGEiLCJhIjoiY2szNjI3M2tkMDdjdjNocXA2bTl4ZThvdiJ9.Z4j_rPWQgMRpRRFW6na_ug';
   var map = new mapboxgl.Map({
-  container: 'map-create',
-  style: "mapbox://styles/mapbox/streets-v11",
-  center: [0, 0],
-  zoom: 1.5
+    container: 'map-create',
+    style: "mapbox://styles/mapbox/streets-v11",
+    center: [0, 0],
+    zoom: 1.5
   });
-  var geocoder = new MapboxGeocoder({ 
-    accessToken: mapboxgl.accessToken, 
-    mapboxgl: mapboxgl, 
-    marker: true, 
+  var geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl,
+    marker: true,
   });
   map.addControl(geocoder);
 
   geoCoder.on('results', (results) => {
-    console.log(document.querySelector('#address-create').value )
+    console.log(document.querySelector('#address-create').value)
     document.querySelector('#address-create').value = results.features[0].place_name
     document.querySelector('#lat-create').value = results.features[0].center[1];
     document.querySelector('#lng-create').value = results.features[0].center[0];
@@ -241,68 +241,68 @@
 </div>
  --}}
 
-{{!-- <script>
-  mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zZWNhem9ybGEiLCJhIjoiY2szNjI3M2tkMDdjdjNocXA2bTl4ZThvdiJ9.Z4j_rPWQgMRpRRFW6na_ug';
-  var map = new mapboxgl.Map({
-  container: 'map-edit',
-  style: "mapbox://styles/mapbox/streets-v11",
-  center: [0, 0],
-  zoom: 1.5
-  });
-  var geocoder = new MapboxGeocoder({ 
-    accessToken: mapboxgl.accessToken, 
-    mapboxgl: mapboxgl, 
-    marker: true, 
-  });
-  map.addControl(geocoder);
-  geoCoder.on('results', (results) => {
-    console.log(document.querySelector('#address-edit').value )
-    document.querySelector('#address-edit').value = results.features[0].place_name
-    document.querySelector('#lat-edit').value = results.features[0].center[1];
-    document.querySelector('#lng-edit').value = results.features[0].center[0];
-  });
-</script> --}}
+  {{!-- <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zZWNhem9ybGEiLCJhIjoiY2szNjI3M2tkMDdjdjNocXA2bTl4ZThvdiJ9.Z4j_rPWQgMRpRRFW6na_ug';
+    var map = new mapboxgl.Map({
+      container: 'map-edit',
+      style: "mapbox://styles/mapbox/streets-v11",
+      center: [0, 0],
+      zoom: 1.5
+    });
+    var geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl,
+      marker: true,
+    });
+    map.addControl(geocoder);
+    geoCoder.on('results', (results) => {
+      console.log(document.querySelector('#address-edit').value)
+      document.querySelector('#address-edit').value = results.features[0].place_name
+      document.querySelector('#lat-edit').value = results.features[0].center[1];
+      document.querySelector('#lng-edit').value = results.features[0].center[0];
+    });
+  </script> --}}
 
-{{!-- Event New Project --}}
-<div class="modal" id="newproject">
-  <div class="modal-content">
-    <h3>Create a new awesome project</h3>
-    <div class="row">
-      <br>
-      <form class="col s12" method="POST" action="/event/create">
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="title" type="text" name="title">
-            <label for="title">Project Name</label>
+  {{!-- Event New Project --}}
+  <div class="modal" id="newproject">
+    <div class="modal-content">
+      <h3>Create a new awesome project</h3>
+      <div class="row">
+        <br>
+        <form class="col s12" method="POST" action="/event/create">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="title" type="text" name="title">
+              <label for="title">Project Name</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="description" type="text" name="description">
+              <label for="description">Project Description</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="status_project" type="text" name="status_project">
+              <label for="status_project">Project Status</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="people_needed" type="text" name="people_needed">
+              <label for="people_needed">Talents for the project</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="ending_date" type="date" name="ending_date">
+              <label for="ending_date">Project ending date</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="external_link" type="url" name="external_link">
+              <label for="external_link">External link</label>
+            </div>
           </div>
-          <div class="input-field col s12">
-            <input id="description" type="text" name="description">
-            <label for="description">Project Description</label>
-          </div>
-          <div class="input-field col s12">
-            <input id="status_project" type="text" name="status_project">
-            <label for="status_project">Project Status</label>
-          </div>
-          <div class="input-field col s12">
-            <input id="people_needed" type="text" name="people_needed">
-            <label for="people_needed">Talents for the project</label>
-          </div>
-          <div class="input-field col s12">
-            <input id="ending_date" type="date" name="ending_date">
-            <label for="ending_date">Project ending date</label>
-          </div>
-          <div class="input-field col s12">
-            <input id="external_link" type="url" name="external_link">
-            <label for="external_link">External link</label>
-          </div>
-        </div>
-        <button class="btn waves-effect waves-light red" type="submit">Create
-          <i class="material-icons right">send</i>
-        </button>
-      </form>
+          <button class="btn waves-effect waves-light red" type="submit">Create
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 {{!-- Event New Post --}}
