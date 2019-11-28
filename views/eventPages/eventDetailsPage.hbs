@@ -15,5 +15,5 @@
     zoom: 15
   });
   const marker = new mapboxgl.Marker({ color: 'red' })
-  marker.setLngLat([{{ coordinates }}]).setPopup(new mapboxgl.Popup().setHTML(`<span>{{event.username}}</span>`)).addTo(map)
+  marker.setLngLat([{{ coordinates }}]).setPopup(new mapboxgl.Popup().setHTML(`<span>{{event.username}}</span>`)).addTo(map);
 </script>

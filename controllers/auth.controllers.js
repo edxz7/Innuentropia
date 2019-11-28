@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const Event = require("../models/Event");
+const Project = require("../models/Project");
 const passport = require('passport');
 //Local signup
 exports.signupGet = (_, res) => {
@@ -75,8 +76,8 @@ exports.profileGet = async (req, res) => {
   const { _id } = req.user;
   const user = await User.findById(_id)
   const events = await Event.find().populate("author").sort({_id:1}).limit(3);
-
-  res.render("profile", { user , events});
+  const projects = await Project.find().populate("author").sort({_id:1}).limit(3);
+  res.render("profile", { user , events, projects});
 };
 
 exports.profilePost = async (req, res, next) => {

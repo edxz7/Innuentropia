@@ -1,9 +1,5 @@
 const Event = require("../models/Event")
 
-// exports.createEventGet = (_, res) => {
-//     res.render("createEvent")
-// };
-
 exports.createEventPost = async (req, res) => {
     const { _id } = req.user;
     console.log(req.body)
@@ -14,7 +10,7 @@ exports.createEventPost = async (req, res) => {
 exports.eventGet = async (req, res) => {
   const { id } = req.params;
   const event = await Event.findById(id).populate("author");
-  res.render("eventDetailsPage", {
+  res.render("eventPages/eventDetailsPage", {
     event,
     coordinates: event.location.coordinates
   });

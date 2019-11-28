@@ -8,16 +8,16 @@ const postSchema = new Schema({
     type: String,
     required: true
   },
-  content: {
+  description: {
     type: String,
     required: true,
   },
-  creatorId: {
+  author: {
     type: Schema.Types.ObjectId,
     ref: "User"
   },
   project_Id: { //   <= revisar
-    type: string,
+    type: String,
   },
   imgName: String,
   imgPath: {

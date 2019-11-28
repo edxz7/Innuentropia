@@ -6,13 +6,20 @@ const projectSchema = new Schema(
       type: String,
       required: true
     },
-    content: {
+    description: {
       type: String,
       required: true,
     },
-    status: {
+    status_project: {
       type: String,
-      enum: ["starting",],
+      enum: ["Starting Adventure","halfway through","Advance stage", "Almost ready"],
+    }, 
+    req_skills:[String],
+    ending_date:Date,
+    external_url:String,
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
     }
   },
   {
@@ -20,3 +27,6 @@ const projectSchema = new Schema(
     versionKey: false
   }
 );
+
+
+module.exports = model("Project", projectSchema);

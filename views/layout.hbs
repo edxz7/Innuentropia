@@ -90,12 +90,12 @@
   </div> --}}
 
   {{!-- Event New Project --}}
-  <div class="modal" id="newproject">
+  {{!-- <div class="modal" id="newproject">
     <div class="modal-content">
       <h3>Create a new awesome project</h3>
       <div class="row">
         <br>
-        <form class="col s12" method="POST" action="/event/create">
+        <form class="col s12" method="POST" action="/project/create">
           <div class="row">
             <div class="input-field col s12">
               <input id="title" type="text" name="title">
@@ -110,16 +110,16 @@
               <label for="status_project">Project Status</label>
             </div>
             <div class="input-field col s12">
-              <input id="people_needed" type="text" name="people_needed">
-              <label for="people_needed">Talents for the project</label>
+              <input id="req_skills" type="text" name="req_skills">
+              <label for="req_skills">Skills required for the project</label>
             </div>
             <div class="input-field col s12">
               <input id="ending_date" type="date" name="ending_date">
-              <label for="ending_date">Project ending date</label>
+              <label for="ending_date">Estimated project ending date</label>
             </div>
             <div class="input-field col s12">
               <input id="external_link" type="url" name="external_link">
-              <label for="external_link">External link</label>
+              <label for="external_link">External project link</label>
             </div>
           </div>
           <button class="btn waves-effect waves-light red" type="submit">Create
@@ -129,15 +129,15 @@
       </div>
     </div>
   </div>
-  </div>
+  </div> --}}
 
   {{!-- Event New Post --}}
-  <div class="modal" id="newpost">
+<div class="modal" id="newpost">
     <div class="modal-content">
       <h3>Create a brand new post</h3>
       <div class="row">
         <br>
-        <form class="col s12" method="POST" action="/event/create">
+        <form class="col s12" method="POST" action="/post/create">
           <div class="row">
             <div class="input-field col s12">
               <input id="title" type="text" name="title">
@@ -148,21 +148,18 @@
               <label for="description">Post Description</label>
             </div>
             <div class="col s12">
-              <form action="/new/create" method="POST" enctype="multipart/form-data">
                 <div>
                   <label for="photo"></label>
                   <input type="file" name="photo" id="photo" accept="image/*">
                 </div>
-              </form>
             </div>
           </div>
-          <button class="btn waves-effect waves-light red" type="submit">Create
+          <button class="btn waves-effect waves-light red" type="submit">Submit
             <i class="material-icons right">send</i>
           </button>
         </form>
       </div>
     </div>
-  </div>
   </div>
 
 {{!-- Mapbox --}}
@@ -188,12 +185,12 @@
 </script> --}}
 
 {{!-- Modal Engine --}}
-{{!-- <script>
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     let elements = document.querySelectorAll('.modal');
     let ins = M.Modal.init(elements);
   });
-</script> --}}
+</script>
 
 </body>
 

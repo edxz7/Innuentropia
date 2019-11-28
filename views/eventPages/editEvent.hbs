@@ -1,22 +1,23 @@
-<h2>Edit a Place</h2>
+<h2>Edit Event</h2>
 <form action="/event/{{event._id}}/edit" method="POST">
     <label for="name">Name</label>
     <input type="text" name="name">
     <label for="location">Location</label>
-    <input id="lng" type="text" name="location[coordinates][0]" placeholder="longitud">
-    <input id="lat" type="text" name="location[coordinates][1]"placeholder="latitud">
+    <input id="lng-edit" type="text" name="location[coordinates][0]" placeholder="longitud">
+    <input id="lat-edit" type="text" name="location[coordinates][1]"placeholder="latitud">
     <label for="address">Address</label>
-    <input id="address" type="text" name="address" placeholder="address">
+    <input id="address-edit" type="text" name="address" placeholder="address">
     <input type="submit" label="update">
+    <a href="/profile">Go back</a>
 </form>
 
-<div id='map'></div>
+<div id='map-edit'></div>
 
 
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoiZGl1cml2aiIsImEiOiJjanAxdjA2cTQwMGp1M2tvYzZmZGp3bWc3In0.4cZEyLkU2ikqx_wb4A1z8A';
   const map = new mapboxgl.Map({
-    container: 'map',
+    container: 'map-edit',
     style: 'mapbox://styles/mapbox/streets-v11',
     center:[-99.160397,19.408481],
     zoom: 15
