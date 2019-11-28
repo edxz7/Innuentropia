@@ -14,6 +14,8 @@
             <span class="card-title">About Me</span>
             <p>Describe yourself and the thing you like.</p>
           </div>
+          <button>Edit Profile</button>
+          <button class="right">Follow Me</button>
         </div>
       </div>
 
@@ -63,7 +65,7 @@
         <div class="col s3 " id="cont_followers">
           <h3>Following</h3>
         </div>
-        <button>Follow Me</button>
+
       </div>
     </div>
   </div> {{!-- fin container  follow & following   --}}
@@ -170,7 +172,14 @@
             <input id="description" type="text" name="description">
             <label for="description">Post Description</label>
           </div>
-
+          <div class="col s12">
+            <form action="/new/create" method="POST" enctype="multipart/form-data">
+              <div>
+                <label for="photo"></label>
+                <input type="file" name="photo" id="photo" accept="image/*">
+              </div>
+            </form>
+          </div>
         </div>
         <button class="btn waves-effect waves-light red" type="submit">Create
           <i class="material-icons right">send</i>
