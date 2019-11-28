@@ -67,20 +67,14 @@
   {{!-- Conteiner para posts & follows segmentos paralelos --}}
   <div class="conteiner">
     <div class="row" id="cont_post_y_foll">
-      {{!-- Post profile --}}
-      <div class="col s6" id="cont_post">
-        <h3> Your Posts</h3>
-        <!-- Modal Trigger Post -->
-        <a class="waves-effect waves-light btn orange modal-trigger" href="#newpost">New Post</a>
-      </div>
-      {{! -- Following --}}
+      {{! -- Followers --}}
       <div class="row">
-        <div class="col s3 " id="cont_following">
+        <div class="col s6 " id="cont_following">
           <h3> Followers</h3>
         </div>
 
         {{! -- Following --}}
-        <div class="col s3 " id="cont_followers">
+        <div class="col s6 " id="cont_followers">
           <h3>Following</h3>
         </div>
 
@@ -133,140 +127,11 @@
       document.querySelector('#lng').value = results.features[0].center[0];
     });
   </script>
-  {{!-- <div class="modal" id="create-event">
-    <div class="modal-content">
-      <h3>Create a new awesome event</h3>
-      <div class="row">
-        <br>
-        <form class="col s12" method="POST" action="/event/create">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="title-create" type="text" name="title">
-              <label for="title">Event Name</label>
-            </div>
-            <div class="input-field col s12">
-              <input id="description-create" type="text" name="description">
-              <label for="description">Event Description</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <div id='map-create'></div>
-            </div>
-            <div class="row">
-              <div class="input-field col s4">
-                <input id="lng-create" type="text" name="location[coordinates][0]" hidden>
-              </div>
-              <div class="input-field col s4">
-                <input id="lat-create" type="text" name="location[coordinates][1]" hidden>
-              </div>
-              <div class="input-field col s4">
-                <input id="address-create" type="text" name="location[address]" hidden>
-              </div>
-            </div>
-          </div>
-          <button class="btn waves-effect waves-light red" type="submit">Create
-            <i class="material-icons right">send</i>
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zZWNhem9ybGEiLCJhIjoiY2szNjI3M2tkMDdjdjNocXA2bTl4ZThvdiJ9.Z4j_rPWQgMRpRRFW6na_ug';
-  var map = new mapboxgl.Map({
-    container: 'map-create',
-    style: "mapbox://styles/mapbox/streets-v11",
-    center: [0, 0],
-    zoom: 1.5
-  });
-  var geocoder = new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken,
-    mapboxgl: mapboxgl,
-    marker: true,
-  });
-  map.addControl(geocoder);
-
-  geoCoder.on('results', (results) => {
-    console.log(document.querySelector('#address-create').value)
-    document.querySelector('#address-create').value = results.features[0].place_name
-    document.querySelector('#lat-create').value = results.features[0].center[1];
-    document.querySelector('#lng-create').value = results.features[0].center[0];
-  });
-</script> --}}
-
-
-  {{!-- Edit Event --}}
-  {{!-- <div class="modal" id="edit-event">
-    <div class="modal-content">
-      <h3>Edit event</h3>
-      <div class="row">
-        <br>
-        <form class="col s12" method="POST" action="/event/{{event._id}}/edit">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="title-edit" type="text" name="title">
-              <label for="title">Event Name</label>
-            </div>
-            <div class="input-field col s12">
-              <input id="description-edit" type="text" name="description">
-              <label for="description">Event Description</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <div id='map-edit'></div>
-            </div>
-            <div class="row">
-              <div class="input-field col s4">
-                <input id="lng-edit" type="text" name="location[coordinates][0]" hidden>
-              </div>
-              <div class="input-field col s4">
-                <input id="lat-edit" type="text" name="location[coordinates][1]" hidden>
-              </div>
-              <div class="input-field col s4">
-                <input id="address-edit" type="text" name="location[address-edit]" >
-              </div>
-            </div>
-          </div>
-          <button class="btn waves-effect waves-light red" type="submit">Submit
-            <i class="material-icons right"> send</i>
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
- --}}
-
-  {{!-- <script>
-    mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zZWNhem9ybGEiLCJhIjoiY2szNjI3M2tkMDdjdjNocXA2bTl4ZThvdiJ9.Z4j_rPWQgMRpRRFW6na_ug';
-    var map = new mapboxgl.Map({
-      container: 'map-edit',
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [0, 0],
-      zoom: 1.5
-    });
-    var geocoder = new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl,
-      marker: true,
-    });
-    map.addControl(geocoder);
-    geoCoder.on('results', (results) => {
-      console.log(document.querySelector('#address-edit').value)
-      document.querySelector('#address-edit').value = results.features[0].place_name
-      document.querySelector('#lat-edit').value = results.features[0].center[1];
-      document.querySelector('#lng-edit').value = results.features[0].center[0];
-    });
-  </script> --}}
 
   {{!-- Event New Project --}}
   <div class="modal" id="newproject">
     <div class="modal-content">
-      <h3>Create a new awesome project</h3>
+      <h3>Create a new awesomem project</h3>
       <div class="row">
         <br>
         <form class="col s12" method="POST" action="/event/create">
@@ -279,14 +144,28 @@
               <input id="description" type="text" name="description">
               <label for="description">Project Description</label>
             </div>
+            {{!-- combo selector --}}
             <div class="input-field col s12">
-              <input id="status_project" type="text" name="status_project">
-              <label for="status_project">Project Status</label>
+              <select name="Project Status">
+                <option value="" disabled selected>Status of the project :</option>
+                <option value="Starting Adventure">Starting Adventure</option>
+                <option value="halfway through">halfway through</option>
+                <option value="Advance stage">Advance stage</option>
+                <option value="Almost ready">Almost ready</option>
+              </select>
+              <label>status</label>
             </div>
+
+            {{!-- Talents --}}
             <div class="input-field col s12">
               <input id="people_needed" type="text" name="people_needed">
               <label for="people_needed">Talents for the project</label>
             </div>
+            {{!-- chips --}}
+            <div class="row">
+              <div class="chips-m col s12"></div>
+            </div>
+
             <div class="input-field col s12">
               <input id="ending_date" type="date" name="ending_date">
               <label for="ending_date">Project ending date</label>
@@ -343,7 +222,34 @@
   document.addEventListener('DOMContentLoaded', function () {
     let elements = document.querySelectorAll('.modal');
     let ins = M.Modal.init(elements);
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, {});
+
   });
+
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems, {});
+  //para las chips
+  var elems = document.querySelectorAll('.chips-m');
+  var instances = M.Chips.init(elems, {
+    data: [],
+    limit: 20,
+    onChipAdd: () => {
+
+    },
+    placeholder: "Add your skills",
+    secondaryPlaceholder: "skill",
+    autocompleteOptions: {
+      data: {
+        'javascript': null,
+        'javier': null,
+      },
+      limit: Infinity,
+      minLength: 1
+    }
+  });
+
+
 </script>
 
 <script>
