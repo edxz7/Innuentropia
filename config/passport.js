@@ -41,7 +41,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: `${process.env.ENDPOINT}/google/callback`
+      callbackURL: `${process.env.ENDPOINT}/auth/google/callback`
     },
     async (accessToken, refreshToken, profile, done) => {
       const user = await User.findOne({ google_id: profile.id }).catch(err =>
@@ -51,7 +51,6 @@ passport.use(
         const newUser = await User.create({
           google_id: profile.id,
           username: profile.displayName,
-          role: "Needy",
           email: profile.emails[0].value,
           photoURL: profile.photos[0].value,
           telephone_number: "without"

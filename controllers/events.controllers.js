@@ -1,15 +1,23 @@
 const Event = require("../models/Event")
 
-exports.createEventGet = (_, res) => {
-    res.render("createEvent")
-};
+// exports.createEventGet = (_, res) => {
+//     res.render("createEvent")
+// };
 
-exports.createEventPost = async (req, res, next) => {
+exports.createEventPost = async (req, res) => {
     const { _id } = req.user;
-    const event = await Event.create({ ...req.body, author: _id });
-    res.redirect("/feedPage");
+    await Event.create({ ...req.body, author: _id });
+    res.redirect("/profile");
 };
 
+exports.eventGet = async (req, res) => {
+  const { id } = req.params;
+  const event = await Event.findById(id).populate("author");
+  res.render("feedPage", {
+    event,
+    coordinates: event.location.coordinates
+  });
+}
 
 exports.deleteEvent = (req, res) => {
   const {id} = req.params
@@ -22,7 +30,7 @@ exports.editEventGet = (req, res) => {
   const { id } = req.params;
   Event.findById(id)
     .then((event) => {
-      res.render('edit', { event });
+      res.render('feedPage', { event });
     })
     .catch((err) => console.log(err));
 };

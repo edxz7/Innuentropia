@@ -29,7 +29,7 @@
 <div id="events" class="col s12">
   <div>
     <h4/h4>Seccion de Eventos</h4> <p>Mostrar 3~5 eventos</p>
-               <!-- Modal Trigger -->
+      <!-- Modal Trigger -->
       <a class="waves-effect waves-light btn orange modal-trigger" href="#event">New Event</a>
       {{!-- <button> <a href="/event/create">New Event</a> </button> --}}
   </div>
@@ -86,10 +86,10 @@
       <h3>Create a new awesome event</h3>
       <div class="row">
         <br>
-        <form class="col s12" method="POST" action="/user/create">
+        <form class="col s12" method="POST" action="/event/create">
           <div class="row">
             <div class="input-field col s12">
-              <input id="title" type="text" name="name">
+              <input id="title" type="text" name="title">
               <label for="title">Event Name</label>
             </div>
             <div class="input-field col s12">
@@ -139,6 +139,7 @@
   });
 </script>
 
+{{!-- Modal Engine --}}
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     let elements = document.querySelectorAll('.modal');

@@ -26,14 +26,15 @@
   <body>
     <nav>
       <div class="nav-wrapper">
-        <a href="/" class="brand-logo">Logo</a>
+        <a href="/feed" class="brand-logo">Logo</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           {{#if logged}}
+          <li><a href="/profile">Profile</a></li>
           <li><a href="/post">Create Post</a></li>
-          <li><a href="/event">Create Event</a></li>
+          <li><a class="waves-effect waves-light btn orange modal-trigger" href="#nav-event">Create Event</a></li>
           <li><a href="/logout">logout</a></li>
-          {{else}}
-          <li><a href="/login">login</a></li>
+          {{!-- {{else}}
+          <li><a href="/login">login</a></li> --}}
           {{/if}}
         </ul>
       </div>
@@ -42,7 +43,78 @@
 
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script type="application/javascript" src="../javascripts/{{script}}.js"></script>
+  {{!-- <script type="application/javascript" src="../javascripts/{{script}}.js"></script> --}}
+
+
+{{!-- Modals --}}
+
+{{!-- Event --}}
+  <div class="modal" id="nav-event">
+    <div class="modal-content">
+      <h3>Create a new awesome event</h3>
+      <div class="row">
+        <br>
+        <form class="col s12" method="POST" action="/event/create">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="title" type="text" name="title">
+              <label for="title">Event Name</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="description" type="text" name="description">
+              <label for="description">Event Description</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <div id='map'></div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="lng" type="text" name="location[coordinates][0]" hidden>
+              </div>
+              <div class="input-field col s6">
+                <input id="lat" type="text" name="location[coordinates][1]" hidden>
+              </div>
+              <div class="input-field col s6">
+                <input id="address" type="text" name="location[address]" hidden>
+              </div>
+            </div>
+          </div>
+          <button class="btn waves-effect waves-light red" type="submit">Create
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+{{!-- Mapbox --}}
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiZGl1cml2aiIsImEiOiJjanAxdjA2cTQwMGp1M2tvYzZmZGp3bWc3In0.4cZEyLkU2ikqx_wb4A1z8A';
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11'
+  });
+  const geoCoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken
+  })
+  map.addControl(geoCoder)
+  geoCoder.on('results', (results) => {
+    document.querySelector('#address').value = results.features[0].place_name
+    document.querySelector('#lat').value = results.features[0].center[1];
+    document.querySelector('#lng').value = results.features[0].center[0];
+  });
+</script>
+
+{{!-- Modal Engine --}}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let elements = document.querySelectorAll('.modal');
+    let ins = M.Modal.init(elements);
+  });
+</script>
 
 </body>
 

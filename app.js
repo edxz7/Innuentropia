@@ -68,12 +68,14 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 const index = require("./routes/index");
 const authRoutes = require("./routes/auth.routes");
 const profileRoutes = require("./routes/profile.routes");
-const eventRoutes = require("./routes/event.routes")
+const eventRoutes = require("./routes/event.routes");
+const feedRoutes  = require("./routes/feed.routes");
 // const dogooderRouetes = require("./routes/dogooderRoutes");
 app.use("/", checkUser, index);
 app.use("/", authRoutes);
 app.use("/", isAuth, profileRoutes);
-app.use("/", isAuth, eventRoutes)
+app.use("/", isAuth, eventRoutes);
+app.use("/",isAuth, feedRoutes);
 
 // app.use("/do-gooder", isAuth, dogooderRouetes);
 
