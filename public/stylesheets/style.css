@@ -1,9 +1,11 @@
 body {
   padding: 0;
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif; }
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
 
 a {
-  color: black; }
+  color: black;
+}
 
 #home-container {
   width: 100vw;
@@ -13,19 +15,22 @@ a {
   display: flex;
   align-items: flex-end;
   justify-content: space-evenly;
-  padding: 50px; }
+  padding: 50px;
+}
 
 .needy-container {
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+}
 
 .needy-container div#map,
 .container-mio div#map {
   width: 100%;
-  height: 500px; }
+  height: 500px;
+}
 
 .container-mio {
   flex-direction: column;
@@ -33,18 +38,30 @@ a {
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+}
 
 #profile_pic {
   width: 200px;
   height: 200px;
-  clip-path: circle(50% at 50% 50%); }
+  clip-path: circle(50% at 50% 50%);
+}
 
 #espacio_tags {
   width: 70vw;
-  height: 200px;
-  background-color: lightseagreen; }
+  height: 100px;
+  background-color: lightseagreen;
+}
 
+#card_aboutme {}
+
+#Cont_ev_y_pro {}
+
+#Cont_pro {}
+
+#cont_post_y_foll {}
+
+cont_post cont_following cont_followers
 /*# sourceMappingURL=style.css.map */
 
 /*# sourceMappingURL=style.css.map */

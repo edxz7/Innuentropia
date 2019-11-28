@@ -1,13 +1,16 @@
 <div class="container" id="profile_conteiner">
   <div class="row" id="profile_bg">
+
     {{!-- //Imagen profile --}}
     <div class="col s6">
       <img id=profile_pic src="/images/dali_small.png" alt="profile imagen">
+
     </div>
+
     {{!-- About Me --}}
     <div class="row">
       <div class="col s12 m6">
-        <div class="card grey">
+        <div class="card grey" id="card_aboutme">
           <div class="card-content white-text">
             <span class="card-title">About Me</span>
             <p>Describe yourself and the thing you like.</p>
@@ -24,15 +27,15 @@
   </div>
   {{!-- Conteiner para event & projects segmentos paralelos --}}
   <div class="conteiner">
-    <div class="row" id="profile_bg">
+    <div class="row" id="cont_ev_y_pro">
       {{!-- Events profile --}}
-      <div class="col s6">
+      <div class="col s6 ">
         <h3> Your Latest Event</h3>
         <button>New Event</button>
       </div>
       {{! -- Projects --}}
-      <div class="row">
-        <div class="col s12 m6">
+      <div class="row" id="cont_pro">
+        <div class="col s6 ">
           <h3> Your Latest Proyect</h3>
           <button>New Project</button>
         </div>
@@ -41,25 +44,26 @@
   </div> {{!-- fin container  event & projects   --}}
   {{!-- Conteiner para posts & follows segmentos paralelos --}}
   <div class="conteiner">
-    <div class="row" id="profile_bg">
+    <div class="row" id="cont_post_y_foll">
       {{!-- Post profile --}}
-      <div class="col s6">
+      <div class="col s6" id="cont_post">
         <h3> Your Posts</h3>
         <button>New Post</button>
       </div>
       {{! -- Following --}}
       <div class="row">
-        <div class="col s3 ">
+        <div class="col s3 " id="cont_following">
           <h3> Followers</h3>
         </div>
 
         {{! -- Following --}}
-        <div class="col s3 ">
+        <div class="col s3 " id="cont_followers">
           <h3>Following</h3>
         </div>
+        <button>Follow Me</button>
       </div>
     </div>
-  </div> {{!-- fin container  event & projects   --}}
+  </div> {{!-- fin container  follow & following   --}}
 
 </div>{{!-- fin container principal  --}}
 <script>
