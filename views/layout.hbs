@@ -30,7 +30,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         {{#if logged}}
         <li><a href="/profile">Profile</a></li>
-        <li><a href="/post">Create Post</a></li>
+        <li><a class="waves-effect waves-light btn orange modal-trigger" href="#newpost">Create Post</a></li>
         <li><a class="waves-effect waves-light btn orange modal-trigger" href="#event">Create Event</a></li>
         <li><a href="/logout">logout</a></li>
         {{!-- {{else}}
@@ -131,6 +131,32 @@
   </div>
   </div>
 
+  {{!-- Event New Post --}}
+  <div class="modal" id="newpost">
+    <div class="modal-content">
+      <h3>Create a brand new post</h3>
+      <div class="row">
+        <br>
+        <form class="col s12" method="POST" action="/event/create">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="title" type="text" name="title">
+              <label for="title">Post Title</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="description" type="text" name="description">
+              <label for="description">Post Description</label>
+            </div>
+
+          </div>
+          <button class="btn waves-effect waves-light red" type="submit">Create
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
 
   {{!-- Mapbox --}}
   <script>

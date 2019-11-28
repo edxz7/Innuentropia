@@ -50,7 +50,8 @@
       {{!-- Post profile --}}
       <div class="col s6" id="cont_post">
         <h3> Your Posts</h3>
-        <button>New Post</button>
+        <!-- Modal Trigger Post -->
+        <a class="waves-effect waves-light btn orange modal-trigger" href="#newpost">New Post</a>
       </div>
       {{! -- Following --}}
       <div class="row">
@@ -143,6 +144,33 @@
             <input id="external_link" type="url" name="external_link">
             <label for="external_link">External link</label>
           </div>
+        </div>
+        <button class="btn waves-effect waves-light red" type="submit">Create
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+{{!-- Event New Post --}}
+<div class="modal" id="newpost">
+  <div class="modal-content">
+    <h3>Create a brand new post</h3>
+    <div class="row">
+      <br>
+      <form class="col s12" method="POST" action="/event/create">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="title" type="text" name="title">
+            <label for="title">Post Title</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="description" type="text" name="description">
+            <label for="description">Post Description</label>
+          </div>
+
         </div>
         <button class="btn waves-effect waves-light red" type="submit">Create
           <i class="material-icons right">send</i>
