@@ -1,28 +1,35 @@
 <div class="container">
   <div class="row">
     <form class="col s12" action="/test" method="POST">
-
+      {{!-- <h3 class="center"> Complete Your Profile </h3> --}}
       <div class="input-field col  s12">
         <i class="material-icons prefix">account_circle</i>
         <input id="first_name" name="username" class="icon_prefix" type="text" class="validate">
         <label for="first_name">First Name</label>
       </div>
 
-      <div class="input-field col s12 ">
+      {{!-- <div class="input-field col s12 ">
         <i class="material-icons prefix">email</i>
         <input id="email" name="email" class="icon_prefix" type="email" class="validate">
         <label for="email">email</label>
+      </div> --}}
+
+      <div class="input-field col s12 ">
+        <i class="material-icons prefix">phone</i>
+        <input id="phone" name="phone" class="icon_prefix" type="text" class="validate">
+        <label for="phone">Phone Number</label>
       </div>
 
-      <div class="input-field col s12">
+      {{!-- <div class="input-field col s12">
         <i class="material-icons prefix">fingerprint</i>
         <input id="password" name="password" type="password" class="validate">
         <label for="password">Password</label>
-      </div>
+      </div> --}}
 
+      {{!-- combo selector --}}
       <div class="input-field col s12">
-        <select name="role">
-          <option value="" disabled selected>Choose your option</option>
+        <select name="Your artist essence">
+          <option value="" disabled selected>Choose your art :</option>
           <option value="Actor">Actor</option>
           <option value="Painter">Painter</option>
           <option value="Digital Artist">Digital Artist</option>
@@ -37,12 +44,16 @@
         <label>Role</label>
       </div>
 
-
-      <div class="chips"></div>
-
-
-
-      <input type="submit">
+      <div>
+        <div class="chips col s12"></div>
+        <input type="submit">
+      </div>
     </form>
   </div>
 </div>
+
+<!-- Compiled and minified CSS -->
+{{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> --}}
+
+<!-- Compiled and minified JavaScript -->
+{{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> --}}

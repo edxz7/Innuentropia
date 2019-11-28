@@ -22,31 +22,6 @@
 {{!-- Modals --}}
 
 
-{{!-- Modal Engine --}}
-
-{{!-- Event Display Modal --}}
-  <div class="modal" id="/event/{{event._id}}">
-    <div class="modal-content">
-      <h2>{{event.name}}</h2>
-      <p>{{event.location.address}}</p>
-      {{!-- <div id='map'></div> --}}
-      <p>By {{event.author.name}}</p>
-      <a href="/">Go back</a>
-      <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoiZGl1cml2aiIsImEiOiJjanAxdjA2cTQwMGp1M2tvYzZmZGp3bWc3In0.4cZEyLkU2ikqx_wb4A1z8A';
-        const map = new mapboxgl.Map({
-          container: 'map',
-          style: 'mapbox://styles/mapbox/streets-v11',
-          center: [{{ coordinates }}],
-          zoom: 15
-        });
-        const marker = new mapboxgl.Marker({ color: 'red' })
-        marker.setLngLat([{{ coordinates }}]).setPopup(new mapboxgl.Popup().setHTML(`<span>{{event.name}}</span>`)).addTo(map);
-      </script>
-    </div>
-  </div>
-
-
 {{!-- Mapbox --}}
 {{!-- <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoiZGl1cml2aiIsImEiOiJjanAxdjA2cTQwMGp1M2tvYzZmZGp3bWc3In0.4cZEyLkU2ikqx_wb4A1z8A';
@@ -66,9 +41,9 @@
 </script> --}}
 
 {{!-- Modal Engine --}}
-<script>
+{{!-- <script>
   document.addEventListener('DOMContentLoaded', function () {
     let elements = document.querySelectorAll('.modal');
     let ins = M.Modal.init(elements);
   });
-</script>
+</script> --}}
