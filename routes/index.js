@@ -18,11 +18,9 @@ router.get('/', (req, res, next) => {
 //   });
 // });
 
-// router.post("/newProject", (req, res, next) => {
-//   res.render("newProject", {
-//     script: "newProject"
-//   });
-// });
+
+
+
 
 /* GET home page */
 router.get('/editprofile', (req, res, next) => {
@@ -31,40 +29,11 @@ router.get('/editprofile', (req, res, next) => {
   });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//pruebas front//
-// router.get('/profile', (req, res, next) => {
-//   res.render('profile');
-// });
+/* GET newProject page */
+router.get('/newProject', (req, res) => {
+  res.render('newProject', {
+    script: 'newProjectjs'
+  });
+});
 
 module.exports = router;
