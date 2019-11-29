@@ -12,7 +12,7 @@ const userSchema = new Schema(
     username: {
       type: String,
       required: true,
-      unique: true
+      // unique: true
     },
     description: {
       type:String,

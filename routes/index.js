@@ -18,11 +18,11 @@ router.get('/', (req, res, next) => {
 //   });
 // });
 
-router.post("/newProject", (req, res, next) => {
-  res.render("newProject", {
-    script: "newProject"
-  });
-});
+// router.post("/newProject", (req, res, next) => {
+//   res.render("newProject", {
+//     script: "newProject"
+//   });
+// });
 
 /* GET home page */
 router.get('/editprofile', (req, res, next) => {
