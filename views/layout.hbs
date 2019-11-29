@@ -25,11 +25,12 @@
 
 <body>
   <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper black">
       <a href="/feed" class="brand-logo"><img src="/images/logo innuentropia_small.png" width="175" height="auto"></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         {{#if logged}}
         <li><a href="/profile">Profile</a></li>
+        <li><a href="/editprofile">Edit Profile</a></li>
         <li><a class="waves-effect waves-light btn orange modal-trigger" href="#newpost">Create Post</a></li>
         {{!-- <li><a class="waves-effect waves-light btn orange modal-trigger" href="#event">Create Event</a></li> --}}
         <li><a href="/logout">logout</a></li>
@@ -48,7 +49,7 @@
 
   {{!-- Modals --}}
 
-{{!-- Event --}}
+  {{!-- Event --}}
   {{!-- <div class="modal" id="event">
     <div class="modal-content">
       <h3>Create a new awesome event</h3>
@@ -162,27 +163,27 @@
     </div>
   </div>
 
-{{!-- Mapbox --}}
-{{!-- <script>
-  mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zZWNhem9ybGEiLCJhIjoiY2szNjI3M2tkMDdjdjNocXA2bTl4ZThvdiJ9.Z4j_rPWQgMRpRRFW6na_ug';
-  var map = new mapboxgl.Map({
-  container: 'map',
-  style: "mapbox://styles/mapbox/streets-v11",
-  center: [0, 0],
-  zoom: 1.5
-  });
-  var geocoder = new MapboxGeocoder({ 
-    accessToken: mapboxgl.accessToken, 
-    mapboxgl: mapboxgl, 
-    marker: true, 
-  });
-  map.addControl(geocoder);
-  geoCoder.on('results', (results) => {
-    document.querySelector('#address').value = results.features[0].place_name
-    document.querySelector('#lat').value = results.features[0].center[1];
-    document.querySelector('#lng').value = results.features[0].center[0];
-  });
-</script> --}}
+  {{!-- Mapbox --}}
+  {{!-- <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zZWNhem9ybGEiLCJhIjoiY2szNjI3M2tkMDdjdjNocXA2bTl4ZThvdiJ9.Z4j_rPWQgMRpRRFW6na_ug';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: "mapbox://styles/mapbox/streets-v11",
+      center: [0, 0],
+      zoom: 1.5
+    });
+    var geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl,
+      marker: true,
+    });
+    map.addControl(geocoder);
+    geoCoder.on('results', (results) => {
+      document.querySelector('#address').value = results.features[0].place_name
+      document.querySelector('#lat').value = results.features[0].center[1];
+      document.querySelector('#lng').value = results.features[0].center[0];
+    });
+  </script> --}}
 
 {{!-- Modal Engine --}}
 <script>

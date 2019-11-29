@@ -21,12 +21,8 @@ const projectSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User"
     }
-  },
-  {
-    timestamps: true,
-    versionKey: false
-  }
-);
-
-
+  }, {
+  timestamps: true,
+  versionKey: false
+});
 module.exports = model("Project", projectSchema);

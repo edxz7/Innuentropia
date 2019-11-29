@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  //para las chips
+
   var elems = document.querySelectorAll('select');
   var instances = M.FormSelect.init(elems, {});
+  //para las chips
   var elems = document.querySelectorAll('.chips');
   var instances = M.Chips.init(elems, {
     data: [],

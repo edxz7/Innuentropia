@@ -26,6 +26,13 @@ router.post("/newProject", (req, res, next) => {
   });
 });
 
+/* GET home page */
+router.get('/editprofile', (req, res, next) => {
+  res.render('editProfile', {
+    script: 'editprofilejs'
+  });
+});
+
 
 
 
