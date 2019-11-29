@@ -10,7 +10,7 @@
 
     <div class="row">
       <div class="col s12 m6">
-        <div class="card grey" id="card_aboutme">
+        <div class="card blue-grey darken-1 " id="card_aboutme">
           <div class="card-content white-text">
             <h3>{{user.username}}</h3>
             <h4>Soul affinity: {{user.role}} </h4>
@@ -34,7 +34,7 @@
   </div>
   {{!-- Conteiner para event & projects segmentos paralelos --}}
   <div class="conteiner">
-    <div class="row" id="cont_ev_y_pro">
+    <div class="row z-depth-2" id="cont_ev_y_pro">
       {{!-- Events profile --}}
       <div class="col s6 ">
         <h3> Your Latest Event</h3>
@@ -60,7 +60,7 @@
       {{! -- Projects --}}
       <div class="row" id="cont_pro">
         <div class="col s6 ">
-          <h3> Your Latest Proyect</h3>
+          <h3> Your Latest Project</h3>
           <!-- Modal Trigger Project -->
           <a class="waves-effect waves-light btn orange modal-trigger" href="#newproject">New Project</a>
           {{#each projects as |project|}}
@@ -89,13 +89,18 @@
     <div class="row" id="cont_post_y_foll">
       {{! -- Followers --}}
       <div class="row">
-        <button class="btn waves-effect waves-light" type="submit" name="action">Followers
-          <i class="material-icons right">send</i>
-        </button>
+        <div class="col s6 " id="cont_following">
+
+          <button class="waves-effect waves-light btn-large"
+            onclick="window.location.href = '/routes/##';">Followers</button>
+        </div>
+
         {{! -- Following --}}
-        <button class="btn waves-effect waves-light" type="submit" name="action">Following
-          <i class="material-icons right">send</i>
-        </button>
+        <div class="col s6 " id="cont_followers">
+          <button class="waves-effect waves-light btn-large"
+            onclick="window.location.href = '/routes/##';">Following</button>
+        </div>
+
       </div>
     </div>
   </div> {{!-- fin container  follow & following   --}}
