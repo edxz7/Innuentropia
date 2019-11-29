@@ -30,7 +30,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         {{#if logged}}
         <li><a href="/profile">Profile</a></li>
-        <li><a href="/editprofile">Edit Profile</a></li>
+        {{!-- <li><a href="/editprofile">Edit Profile</a></li> --}}
         <li><a class="waves-effect waves-light btn orange modal-trigger" href="#newpost">Create Post</a></li>
         {{!-- <li><a class="waves-effect waves-light btn orange modal-trigger" href="#event">Create Event</a></li> --}}
         <li><a href="/logout">logout</a></li>
@@ -42,9 +42,7 @@
   </nav>
   {{{body}}}
 
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script type="application/javascript" src="../javascripts/{{script}}.js"></script>
+
 
 
   {{!-- Modals --}}
@@ -186,13 +184,15 @@
   </script> --}}
 
 {{!-- Modal Engine --}}
-<script>
+{{!-- <script>
   document.addEventListener('DOMContentLoaded', function () {
     let elements = document.querySelectorAll('.modal');
     let ins = M.Modal.init(elements);
   });
-</script>
-
+</script> --}}
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="application/javascript" src="../javascripts/{{script}}.js"></script>
 </body>
 
 </html>

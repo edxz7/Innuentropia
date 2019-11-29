@@ -6,7 +6,8 @@
       <img id=profile_pic src="{{user.photoProfileURL}}" alt="profile imagen">
     </div>
 
-    {{!-- About Me --}}
+    {{!-- About Me --}}    
+
     <div class="row">
       <div class="col s12 m6">
         <div class="card grey" id="card_aboutme">
@@ -16,8 +17,8 @@
             <span class="card-title">About Me</span>
             <p>{{user.description}}</p>
           </div>
-          <button>Edit Profile</button>
-          <button class="right" id="follow_btn">Follow Me</button>
+          <a class="waves-effect waves-light modal-trigger" href="/editprofile">Edit Profile</a>
+          <a class="waves-effect waves-light modal-trigger">Follow Me</a>
         </div>
       </div>
 
@@ -98,48 +99,7 @@
   </div> {{!-- fin container  follow & following   --}}
 
   <!-- Modal Structure -->
-  {{!-- New Project --}}
-  <div class="modal" id="newproject">
-    <div class="modal-content">
-      <h3>Create a new awesome project</h3>
-      <div class="row">
-        <br>
-          <form class="col s12" method="POST" action="/project/create">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="title" type="text" name="title">
-                <label for="title">Project Name</label>
-              </div>
-              <div class="input-field col s12">
-                <input id="description" type="text" name="description">
-                <label for="description">Project Description</label>
-              </div>
-              <div class="input-field col s12">
-                <input id="status_project" type="text" name="status_project">
-                <label for="status_project">Project Status</label>
-              </div>
-              <div class="input-field col s12">
-                <input id="req_skills" type="text" name="req_skills">
-                <label for="req_skills">Skills required for the project</label>
-              </div>
-              <div class="input-field col s12">
-                <input id="ending_date" type="date" name="ending_date">
-                <label for="ending_date">Estimated project ending date</label>
-              </div>
-              <div class="input-field col s12">
-                <input id="external_link" type="url" name="external_link">
-                <label for="external_link">External project link</label>
-              </div>
-            </div>
-            <button class="btn waves-effect waves-light red" type="submit">Create
-              <i class="material-icons right">send</i>
-            </button>
-          </form>
-      </div>
-    </div>
-  </div>
-  </div>
-
+ 
   {{!-- New Post --}}
   {{!-- <div class="modal" id="newpost">
     <div class="modal-content">
@@ -217,13 +177,13 @@
     });
   </script>
 
-  {{!-- Event New Project --}}
+{{!-- Event New Project --}}
   <div class="modal" id="newproject">
     <div class="modal-content">
       <h3>Create a new awesomem project</h3>
       <div class="row">
         <br>
-        <form class="col s12" method="POST" action="/event/create">
+        <form class="col s12" method="POST" action="/project/create">
           <div class="row">
             <div class="input-field col s12">
               <input id="title" type="text" name="title">
@@ -244,7 +204,6 @@
               </select>
               <label>status</label>
             </div>
-
             {{!-- Talents --}}
             <div class="input-field col s12">
               <input id="people_needed" type="text" name="people_needed">
@@ -254,7 +213,6 @@
             <div class="row">
               <div class="chips-m col s12"></div>
             </div>
-
             <div class="input-field col s12">
               <input id="ending_date" type="date" name="ending_date">
               <label for="ending_date">Project ending date</label>
@@ -272,7 +230,9 @@
     </div>
   </div>
 </div>
- --}}
+
+
+
 
 {{!-- <script>
   mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zZWNhem9ybGEiLCJhIjoiY2szNjI3M2tkMDdjdjNocXA2bTl4ZThvdiJ9.Z4j_rPWQgMRpRRFW6na_ug';
@@ -302,9 +262,7 @@
     let ins = M.Modal.init(elements);
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems, {});
-
   });
-
   var elems = document.querySelectorAll('select');
   var instances = M.FormSelect.init(elems, {});
   //para las chips
@@ -313,7 +271,6 @@
     data: [],
     limit: 20,
     onChipAdd: () => {
-
     },
     placeholder: "Add your skills",
     secondaryPlaceholder: "skill",
@@ -326,12 +283,10 @@
       minLength: 1
     }
   });
-
-
 </script>
-
 <script>
   document.querySelector('input[name="photoURL"]').addEventListener('change', (e) => {
     document.querySelector('label.custom-file-label span').innerText = e.target.files[0].name
   });
 </script>
+
