@@ -24,9 +24,11 @@ router.get(
 router.get(
   "/auth/facebook/callback",
   passport.authenticate("facebook", {
-    successRedirect: "/profile",
     failureRedirect: "/"
-  })
+  }),
+    (req, res)  => {
+      res.redirect(`/profile/${req.user._id}`)
+    }
 );
 
 // Google Login
@@ -39,9 +41,11 @@ router.get(
 router.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    successRedirect: "/profile",
     failureRedirect: "/"
-  })
+  }),
+  (req, res)  => {
+    res.redirect(`/profile/${req.user._id}`)
+  }
 );
 
 // Logout no matter which user

@@ -30,7 +30,7 @@ exports.signupPost = async (req, res, next) => {
     req.logIn(user, err => {
       if (err) return next(err);
       req.user = user;
-      return res.redirect(`/profile`);
+      return res.redirect(`/profile/${req.user._id}`);
     });
   })(req, res, next);
 };
@@ -84,7 +84,7 @@ exports.loginPost = (req, res, next) => {
     req.logIn(user, err => {
       if (err) return next(err);
       req.user = user;
-      return res.redirect("/profile");
+      return res.redirect(`/profile/${req.user._id}`);
     });
   })(req, res, next);
 };
@@ -102,6 +102,7 @@ exports.profileGet = async (req, res) => {
   const user = await User.findById(_id)
   const events = await Event.find().populate("author").sort({_id:1}).limit(3);
   const projects = await Project.find().populate("author").sort({_id:1}).limit(3);
+  
   res.render("profile", { user , events, projects});
 };
 

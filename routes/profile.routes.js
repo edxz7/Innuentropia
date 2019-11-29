@@ -8,8 +8,8 @@ const {
 } = require("../controllers/auth.controllers");
 
 
-router.get("/profile", profileGet);
-router.post("/profile", uploadCloud.single("photoURL"), profilePost);
+router.get("/profile/:id", profileGet);
+router.post("/profile/:id", uploadCloud.single("photoURL"), profilePost);
 // router.get("/profile/:id", profileGet);
 router.get("/profile/:id/edit", profileEditGet);
 router.get("/profile/:id/edit", profileEditPost);
