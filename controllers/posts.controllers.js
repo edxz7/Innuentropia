@@ -7,15 +7,16 @@ const Post = require("../models/Post");
 exports.createPostPost = async (req, res, next) => {
     const { _id } = req.user;
     const { title, description } = req.body;
-    console.log(req.file);
-    const { secure_url, originalname } = req.file;  
-    await Post.create({
-      title,
-      description,
-      creatorId: _id,
-      imgPath: secure_url,
-      imgName: originalname
-    });
+    if(req.file){
+      const { secure_url, originalname } = req.file;
+      await Post.create({
+        title,
+        description,
+        author: _id,
+        imgPath: secure_url,
+        imgName: originalname
+      });
+    }
     res.redirect('/feed');
 }
 

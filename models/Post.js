@@ -16,9 +16,6 @@ const postSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User"
   },
-  project_Id: { //   <= revisar
-    type: String,
-  },
   imgName: String,
   imgPath: {
     type: String,

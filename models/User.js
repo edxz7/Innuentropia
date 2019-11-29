@@ -27,6 +27,7 @@ const userSchema = new Schema(
     role: {
       type: String,
       enum: ["Actor", "Painter","Model", "Singer","Musician","Videographer","Digital Artist","Writter","Cinematographer","Designer"],
+      default:"Artist"
     },
     photoProfileURL: {
       type: String,

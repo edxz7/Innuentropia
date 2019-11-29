@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const Event = require("../models/Event");
 const Project = require("../models/Project");
+const Post = require("../models/Post");
 const passport = require('passport');
 //Local signup
 exports.signupGet = (_, res) => {

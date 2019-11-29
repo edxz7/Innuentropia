@@ -12,7 +12,7 @@ const projectSchema = new Schema(
     },
     status_project: {
       type: String,
-      enum: ["Starting Adventure","halfway through","Advance stage", "Almost ready"],
+      enum: ["Starting the adventure","Halfway through","Advance stage", "Almost ready"],
     }, 
     req_skills:[String],
     ending_date:Date,
