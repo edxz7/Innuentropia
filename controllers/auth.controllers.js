@@ -115,7 +115,32 @@ exports.profilePost = async (req, res, next) => {
     });
   } else {
     userUpdated = await User.findByIdAndUpdate(_id, {
-      $set: { username, telephone_number }
+      $set: { username, description, telephone_number, role, tags }
+    });
+  }
+  req.user = userUpdated;
+  res.redirect(`/profile/${userUpdated._id}`);
+};
+
+exports.profileEditGet = async (req, res) => {
+  const { _id } = req.user;
+  const user = await User.findById(_id)
+  const events = await Event.find().populate("author").sort({_id:1}).limit(3);
+  const projects = await Project.find().populate("author").sort({_id:1}).limit(3);
+  res.render("editProfile", { user , events, projects});
+};
+
+exports.profileEditPost = async (req, res, next) => {
+  let userUpdated;
+  const { _id } = req.user;
+  const { username, description, telephone_number, role, tags } = req.body;
+  if (req.file) {
+    userUpdated = await User.findByIdAndUpdate(_id, {
+      $set: { username, description, telephone_number, photoURL: req.file.secure_url, role, tags }
+    });
+  } else {
+    userUpdated = await User.findByIdAndUpdate(_id, {
+      $set: { username, description, telephone_number, role, tags }
     });
   }
   req.user = userUpdated;

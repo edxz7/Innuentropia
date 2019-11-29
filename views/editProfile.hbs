@@ -1,0 +1,109 @@
+{{!-- username: {
+      type: String,
+    description: {
+      type:String,
+    email: {
+    role:
+      enum: ["Actor", "Painter","Model", "Singer","Musician","Videographer","Digital Artist","Writter","Cinematographer","Designer"],
+    photoProfileURL: type: String , default:"/images/dali_small.png"
+    telephone_number:
+     tags: [String] --}}
+<div class="conteiner center">{{!-- Inicia Conteiner Principal --}}
+  <div class="row center">
+    <form class="col s10 offset-s1">
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Placeholder" id="username" type="text" name=" username">
+          <label for="username">Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Write About yourself" id="description" name="description" type="text">
+          <label for="description">About me</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Telephone" id=" telephone_number" name=" telephone_number" type="text">
+          <label for=" telephone_number">Phone Number</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <select name="role">
+            <option value="" disabled selected>Choose your art </option>
+            <option value="Actor">Actor</option>
+            <option value="Painter">Painter</option>
+            <option value="Model">Model</option>
+            <option value="Singer">Singer</option>
+            <option value="Musician">Musician</option>
+            <option value="Videographer">Videographer</option>
+            <option value="Painter">Painter</option>
+            <option value="Designer">Designer</option>
+            <option value="Cinematographer">Cinematographer</option>
+            <option value="Writter">Writter</option>
+            <option value="Digital Artist">Digital Artist</option>
+            <option value="Artist">Artist</option>
+            <option value="Hobbyist">Hobbyist</option>
+          </select>
+          <label>Materialize Select</label>
+          <div>
+            <div class="chips col s12 left"></div>
+          </div>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+          <a href="/profile"  >Go back</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> {{!-- Finaliza conteiner Principal  --}}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems, {});
+  //para las chips
+  var elems = document.querySelectorAll('.chips');
+  var instances = M.Chips.init(elems, {
+    data: [],
+    limit: 20,
+    onChipAdd: () => {
+
+    },
+    placeholder: "Add your skills",
+    secondaryPlaceholder: "skill",
+    autocompleteOptions: {
+      data: {
+        'drawing': null,
+        'realistic drawing': null,
+        'digital draw': null,
+        'pop artist': null,
+        'lofi musician': null,
+        'hip hop artist': null,
+        'rapper': null,
+        'videographer': null,
+        'content creator': null,
+        'tattoo artist': null,
+        'director': null,
+        'writter': null,
+        'composer': null,
+        'paiter': null,
+        'visual desing': null,
+        'photography': null,
+        'photographer': null,
+        'guitarist': null,
+        'electric guitarist': null,
+        'DJ': null,
+        'baterist': null,
+      },
+      limit: 50,
+      minLength: 1
+    }
+  });
+});
+</script>
