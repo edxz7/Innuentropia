@@ -22,10 +22,10 @@
           </div>
           <div class="card-action">
             <a class="waves-effect waves-light btn orange modal-trigger" href="/event/{{event._id}}"> Details </a>
-            <a href="/{{event.author._id}}">Published: {{event.author.username}}</a>
+            <a href="/profile/{{event.author._id}}">Published: {{event.author.username}}</a>
           </div>
           <div class="card-action">
-            <a href="#">This is a link</a>
+            <a href="/profile/{{event.author._id}}">go user profile</a>
           </div>
         </div>
       </li>
@@ -58,7 +58,7 @@
             <p>{{post.description}}</p>
           </div>
           <div class="card-action">
-            <a href="#">This is a link</a>
+            <a href="/profile/{{event.author._id}}">go user profile</a>
           </div>
         </div>
       </li>

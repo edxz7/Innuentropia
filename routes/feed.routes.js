@@ -5,6 +5,7 @@ const Post = require("../models/Post");
 router.get("/feed", async (req, res, next) => {
   const events = await Event.find().populate("author");
   const posts = await Post.find().populate("author");
+  // console.log(events,posts)
   res.render("feedPage", { events, posts });
 });
 
