@@ -85,6 +85,7 @@
                     <div class="card-action">
                       <a class="waves-effect waves-light modal-trigger" href="/project/{{project._id}}/edit">edit</a>
                       <a href="/project/{{project._id}}/delete">Delete</a>
+                      <a href="/project/{{project._id}}">Details</a>
                     </div>
                   </div>
                 </div>
@@ -112,7 +113,6 @@
           <input id="lat" type="text" name="location[coordinates][1]" placeholder="latitud" hidden>
           <label for="address">Address</label>
           <input id="address" type="text" name="location.address" placeholder="address" hidden>
-
 
           <div id='map'></div>
           <input type="submit" label="submit">

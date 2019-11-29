@@ -4,7 +4,7 @@ exports.createProjectPost = async (req, res) => {
     console.log(req.body)
     const { _id } = req.user;
     await Project.create({ ...req.body, author: _id });
-    res.redirect("/profile");
+    res.redirect(`/profile/${req.user._id}`);
 };
 
 exports.projectGet = async (req, res) => {
@@ -17,7 +17,7 @@ exports.deleteProject = (req, res) => {
   const {id} = req.params
   Project.findByIdAndDelete(id)
       .then(() =>{ 
-        res.redirect("/profile")
+        res.redirect(`/profile/${req.user._id}`)
       })
       .catch(err => console.log(err))
 };

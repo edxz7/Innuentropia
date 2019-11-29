@@ -30,7 +30,7 @@ exports.deletePost = (req, res) => {
   const {id} = req.params
   Post.findByIdAndDelete(id)
       .then(() =>{ 
-        res.redirect("/profile")
+        res.redirect(`/profile/${req.user._id}`)
       })
       .catch(err => console.log(err))
 };

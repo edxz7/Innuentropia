@@ -16,6 +16,6 @@ router.post("/event/:id",    eventGet);
 router.get("/event/:id/delete", deleteEvent);
 router.get('/event/:id/edit', editEventGet);
 router.post('/event/:id/edit', editEventPost);
-router.get('/event/:id',eventDetailsGet)
+router.get('/event/:id',eventDetailsGet);
   
 module.exports = router

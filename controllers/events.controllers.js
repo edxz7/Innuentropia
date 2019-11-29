@@ -4,7 +4,7 @@ exports.createEventPost = async (req, res) => {
     const { _id } = req.user;
     console.log(req.body)
     await Event.create({ ...req.body, author: _id });
-    res.redirect("/profile");
+    res.redirect(`/profile/${req.user._id}`);
 };
 
 exports.eventGet = async (req, res) => {
@@ -20,7 +20,7 @@ exports.deleteEvent = (req, res) => {
   const {id} = req.params
   Event.findByIdAndDelete(id)
       .then(() =>{ 
-        res.redirect("/profile")
+        res.redirect(`/profile/${req.user._id}`)
       })
       .catch(err => console.log(err))
 };
