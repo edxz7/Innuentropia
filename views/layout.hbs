@@ -28,7 +28,7 @@
 <body>
   <nav>
     <div class="nav-wrapper black">
-      <a href="/feed" class="brand-logo"><img src="/images/logo innuentropia_small.png" width="175" height="auto"></a>
+      <a href="/feed" class="brand-logo"><img src="/images/logo innuentropia_small.png" width="170" height="auto"></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         {{#if logged}}
         <li><a href="/profile">Profile</a></li>
@@ -133,7 +133,7 @@
   </div> --}}
 
   {{!-- Event New Post --}}
-<div class="modal" id="newpost">
+  <div class="modal" id="newpost">
     <div class="modal-content">
       <h3>Create a brand new post</h3>
       <div class="row">
@@ -149,10 +149,10 @@
               <label for="description">Post Description</label>
             </div>
             <div class="col s12">
-                <div>
-                  <label for="photo"></label>
-                  <input type="file" name="photo" id="photo" accept="image/*">
-                </div>
+              <div>
+                <label for="photo"></label>
+                <input type="file" name="photo" id="photo" accept="image/*">
+              </div>
             </div>
           </div>
           <button class="btn waves-effect waves-light red" type="submit">Submit
@@ -185,13 +185,13 @@
     });
   </script> --}}
 
-{{!-- Modal Engine --}}
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    let elements = document.querySelectorAll('.modal');
-    let ins = M.Modal.init(elements);
-  });
-</script>
+  {{!-- Modal Engine --}}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let elements = document.querySelectorAll('.modal');
+      let ins = M.Modal.init(elements);
+    });
+  </script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script type="application/javascript" src="../javascripts/{{script}}.js"></script>

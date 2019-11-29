@@ -1,0 +1,86 @@
+<div class="container" id="profile_conteiner">
+  {{!-- New Project --}}
+  <h3>Create a new awesome project</h3>
+  <div class="row">
+    <br>
+    <form class="col s12" method="POST" action="/project/create">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="title" type="text" name="title">
+          <label for="title">Project Name</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="description" type="text" name="description">
+          <label for="description">Project Description</label>
+        </div>
+        {{!-- combo selector --}}
+        <div class="input-field col s12">
+          <select name="status_project">
+            <option value="" disabled selected>Status of the project :</option>
+            <option value="Starting the adventure">Starting Adventure</option>
+            <option value="Halfway through">Halfway Through</option>
+            <option value="Advance stage">Advance Stage</option>
+            <option value="Almost ready">Almost Ready</option>
+          </select>
+          <label>status</label>
+        </div>
+        {{!-- Talents --}}
+        <div class="input-field col s12">
+          <input id="req_skills" type="text" name="req_skills">
+          <label for="req_skills">Talents for the project</label>
+        </div>
+        {{!-- chips --}}
+
+        <div class="row">
+          <div class="chips col s12"></div>
+        </div>
+
+        <div class="input-field col s12">
+          <input id="ending_date" type="date" name="ending_date">
+          <br>
+          <label for="ending_date">Project ending date</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="external_url" type="url" name="external_url">
+          <label for="external_url">External link</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light red" type="submit">Create
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </div>
+
+  {{!-- New Project finaliza--}}
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, {});
+
+
+    //para las chips
+    var elems = document.querySelectorAll('.chips');
+    var instances = M.Chips.init(elems, {
+      data: [],
+      limit: 20,
+      onChipAdd: () => {
+      },
+      placeholder: "Add your skills",
+      secondaryPlaceholder: "skill",
+      autocompleteOptions: {
+        data: {},
+        limit: Infinity,
+        minLength: 1
+      }
+    });
+  });
+</script>
+<script>
+  document.querySelector('input[name="photoURL"]').addEventListener('change', (e) => {
+    document.querySelector('label.custom-file-label span').innerText = e.target.files[0].name
+  });
+</script>
