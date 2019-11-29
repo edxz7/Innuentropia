@@ -3,9 +3,7 @@ const router = express.Router();
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('login', {
-    script: 'login'
-  });
+  res.render('login', {script: 'login'});
 });
 
 // router.get('/signup-f', (req, res, next) => {

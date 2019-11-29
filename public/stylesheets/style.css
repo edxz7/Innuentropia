@@ -2,6 +2,10 @@ body {
   padding: 0;
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif; }
 
+#complete-form {
+  width: 500px;
+  margin: 5% auto; }
+
 .uk-panel > img {
   height: 490px; }
 

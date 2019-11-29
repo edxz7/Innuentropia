@@ -1,20 +1,16 @@
 const router = require("express").Router();
 const uploadCloud = require("../config/cloudinary");
-const { profileGet, profilePost } = require("../controllers/auth.controllers");
-// const {
-//   favorGet,
-//   favorPost,
-//   activeGet,
-//   activePost
-// } = require("../controllers/dogooder.controllers");
-// Edit profile
-router.get("/profile", profileGet);
-router.post("/profile", uploadCloud.single("photoURL"), profilePost);
+const { 
+  completeProfileGet,
+  completeProfilePost,
+  profileGet, 
+  profilePost 
+} = require("../controllers/auth.controllers");
 
-// router.get("/favor/:id", favorGet);
-// router.post("/favor/:id", favorPost);
+router.get("/profile", completeProfileGet);
+router.post("/profile", completeProfilePost);
+router.get("/profile/:id", profileGet);
+router.post("/profile/:id", uploadCloud.single("photoURL"), profilePost);
 
-// router.get("/active", activeGet);
-// router.post("/favor/active", activePost);
 
 module.exports = router;

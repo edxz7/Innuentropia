@@ -15,11 +15,30 @@ document.addEventListener('DOMContentLoaded', function () {
     secondaryPlaceholder: "skill",
     autocompleteOptions: {
       data: {
-        'javascript': null,
-        'javier': null,
+        'drawing': null,
+        'realistic drawing': null,
+        'digital draw': null,
+        'pop artist': null,
+        'lofi musician': null,
+        'hip hop artist': null,
+        'rapper': null,
+        'videographer': null,
+        'content creator': null,
+        'tattoo artist': null,
+        'director': null,
+        'writter': null,
+        'composer': null,
+        'paiter': null,
+        'visual desing': null,
+        'photography': null,
+        'photographer': null,
+        'guitarist': null,
+        'electric guitarist': null,
+        'DJ': null,
+        'baterist': null,
       },
-      limit: Infinity,
-      minLength: 1
+      limit: 50,
+      minLength: 3
     }
   });
 });

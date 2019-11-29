@@ -1,7 +1,6 @@
 const User = require('../models/User');
 const Event = require("../models/Event");
 const Project = require("../models/Project");
-const Post = require("../models/Post");
 const passport = require('passport');
 //Local signup
 exports.signupGet = (_, res) => {
@@ -72,7 +71,31 @@ exports.logOut = (req, res, next) => {
   res.redirect("/");
 };
 
+
 //Profile
+
+exports.completeProfileGet = async (req, res) => {
+  res.render("completeProfile");
+}
+
+exports.completeProfilePost = async (req, res, next) => {
+  let userUpdated;
+  const { _id } = req.user;
+  const { username, description, telephone_number, role, tags } = req.body;
+  console.log(req.body)
+  if (req.file) {
+    userUpdated = await User.findByIdAndUpdate(_id, {
+      $set: { username, description, telephone_number, photoURL: req.file.secure_url, role, tags }
+    });
+  } else {
+    userUpdated = await User.findByIdAndUpdate(_id, {
+      $set: { username, description, telephone_number, role, tags }
+    });
+  }
+  req.user = userUpdated;
+  res.redirect(`/profile/${_id }`);
+};
+
 exports.profileGet = async (req, res) => {
   const { _id } = req.user;
   const user = await User.findById(_id)
@@ -84,10 +107,10 @@ exports.profileGet = async (req, res) => {
 exports.profilePost = async (req, res, next) => {
   let userUpdated;
   const { _id } = req.user;
-  // const { username, telephone_number } = req.body;
+  const { username, description, telephone_number, role, tags } = req.body;
   if (req.file) {
     userUpdated = await User.findByIdAndUpdate(_id, {
-      $set: { username, telephone_number, photoURL: req.file.secure_url }
+      $set: { username, description, telephone_number, photoURL: req.file.secure_url, role, tags }
     });
   } else {
     userUpdated = await User.findByIdAndUpdate(_id, {

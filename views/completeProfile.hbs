@@ -1,20 +1,9 @@
-{{!-- username: {
-      type: String,
-    description: {
-      type:String,
-    email: {
-    role: 
-      enum: ["Actor", "Painter","Model", "Singer","Musician","Videographer","Digital Artist","Writter","Cinematographer","Designer"],
-    photoProfileURL: type: String , default:"/images/dali_small.png"
-    telephone_number:
-     tags: [String] --}}
-
-<div class="conteiner center">{{!-- Inicia Conteiner Principal --}}
-  <div class="row center">
-    <form class="col s10 offset-s1">
+<div id="complete-form" class="conteiner ">{{!-- Inicia Conteiner Principal --}}
+  <div class="row ">
+    <form class="col s12">
       <div class="row">
         <div class="input-field col s12">
-          <input placeholder="Placeholder" id="username" type="text">
+          <input placeholder="Complete name" id="username" type="text">
           <label for="username">Name</label>
         </div>
       </div>
@@ -29,19 +18,6 @@
         <div class="input-field col s12">
           <input placeholder="Telephone" id="phone" type="text">
           <label for="phone">Phone Number</label>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="password" type="password" class="password">
-          <label for="password">Password</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
         </div>
       </div>
 
@@ -62,10 +38,11 @@
             <option value="Writter">Writter</option>
             <option value="Digital Artist">Digital Artist</option>
           </select>
-          <label>Materialize Select</label>
+          <label>Select</label>
 
           <div>
-            <div class="chips col s12 left"></div>
+            {{!-- <div class="chips"></div> --}}
+            <div class="chips chips-placeholder chips-autocomplete"></div>
           </div>
           <button class="btn waves-effect waves-light" type="submit" name="action">Submit
             <i class="material-icons right">send</i>
@@ -75,4 +52,4 @@
       </div>
     </form>
   </div>
-</div> {{!-- Finaliza conteiner Principal  --}}
+</div> 
