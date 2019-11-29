@@ -28,7 +28,7 @@
   </div>
   {{!-- segmento de Skills-tags --}}
   <div class="conteiner" id="espacio_tags">
-    <div class="row" class="col s12">
+    <div class="row row z-depth-1" class="col s12">
       <h3> My Skills</h3>
     </div>
   </div>
@@ -89,14 +89,14 @@
   <div class="row" id="cont_post_y_foll">
     {{! -- Followers --}}
     <div class="row">
-      <div class="col s6 " id="cont_following">
+      <div class="col s3  offset-s3" id="cont_following">
 
         <button class="waves-effect waves-light btn-large"
           onclick="window.location.href = '/routes/##';">Followers</button>
       </div>
 
       {{! -- Following --}}
-      <div class="col s6 " id="cont_followers">
+      <div class="col s3 offset-s1" id="cont_followers">
         <button class="waves-effect waves-light btn-large"
           onclick="window.location.href = '/routes/##';">Following</button>
       </div>
@@ -148,58 +148,7 @@
   });
 </script>
 
-{{!-- Event New Project  CANCELADO => es un HBS --}}
-{{!-- <div class="modal" id="newproject">
-    <div class="modal-content">
-      <h3>Create a new awesomem project</h3>
-      <div class="row">
-        <br>
-        <form class="col s12" method="POST" action="/project/create">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="title" type="text" name="title">
-              <label for="title">Project Name</label>
-            </div>
-            <div class="input-field col s12">
-              <input id="description" type="text" name="description">
-              <label for="description">Project Description</label>
-            </div>
-            {{!-- combo selector --}}
-<div class="input-field col s12">
-  <select name="status_project">
-    <option value="" disabled selected>Status of the project :</option>
-    <option value="Starting the adventure">Starting Adventure</option>
-    <option value="Halfway through">halfway through</option>
-    <option value="Advance stage">Advance stage</option>
-    <option value="Almost ready">Almost ready</option>
-  </select>
-  <label>status</label>
-</div>
-{{!-- Talents --}}
-<div class="input-field col s12">
-  <input id="req_skills" type="text" name="req_skills">
-  <label for="req_skills">Talents for the project</label>
-</div>
-{{!-- chips --}}
-<div class="row">
-  <div class="chips-m col s12"></div>
-</div>
-<div class="input-field col s12">
-  <input id="ending_date" type="date" name="ending_date">
-  <label for="ending_date">Project ending date</label>
-</div>
-<div class="input-field col s12">
-  <input id="external_url" type="url" name="external_url">
-  <label for="external_url">External link</label>
-</div>
-</div>
-<button class="btn waves-effect waves-light red" type="submit">Create
-  <i class="material-icons right">send</i>
-</button>
-</form>
-</div>
-</div>
-</div> --}}
+
 </div>
 
 <script>

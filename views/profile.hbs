@@ -2,23 +2,23 @@
   <div class="row" id="profile_bg">
 
     {{!-- //Imagen profile --}}
-    <div class="col s6">
-      <img id=profile_pic src="{{user.photoProfileURL}}" alt="profile imagen">
+    <div class="col s3  center ">
+      <img id=profile_pic src="{{user.photoProfileURL}}" alt="profile imagen" class="height: 350px">
     </div>
 
-    {{!-- About Me --}}
+    {{!-- My Back Ground --}}
 
     <div class="row">
-      <div class="col s12 m6">
-        <div class="card blue-grey darken-1 " id="card_aboutme">
+      <div class="col s12 m9">
+        <div class="card small  grey lighten-1 " id="card_back_image">
+          <img src="images/b_04.jpg" alt="fondo">
           <div class="card-content white-text">
-            <h3>{{user.username}}</h3>
-            <h4>Soul affinity: {{user.role}} </h4>
-            <span class="card-title">About Me</span>
-            <p>{{user.description}}</p>
-            <button class="btn waves-effect waves-light" type="submit" name="action" href="/edit/profile">Edit Profile
+
+            <button class="btn waves-effect waves-light gray right" type="submit" name="action"
+              href="/edit/profile">Edit
+              Profile
             </button>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Follow
+            <button class="btn waves-effect waves-light gray right" type="submit" name="action">Follow
             </button>
           </div>
         </div>
@@ -26,161 +26,172 @@
 
     </div>
   </div>
-  {{!-- segmento de Skills-tags --}}
-  <div class="conteiner" id="espacio_tags">
-    <div class="row" class="col s12">
-      <h3> My Skills</h3>
-    </div>
-  </div>
-  {{!-- Conteiner para event & projects segmentos paralelos --}}
-  <div class="conteiner">
-    <div class="row z-depth-2" id="cont_ev_y_pro">
-      {{!-- Events profile --}}
-      <div class="col s6 ">
-        <h3> Your Latest Event</h3>
-        <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn orange modal-trigger" href="#create-event">Create Event</a>
-        {{#each events as |event|}}
+  {{!-- segmento de About me2 --}}
+  <div class="conteiner" id="espacio_AboutMe">
+    <div class="row row z-depth-1 white" class="col s12">
+      <div class="card blue-grey darken-1 " id="card_aboutme">
+        <div class="card-content white-text">
+          <h3 class="white-text">{{user.username}}</h3>
+          <h4 class="white-text">Soul affinity: {{user.role}} </h4>
+          <span class="card-title">About Me</span>
+          <p>{{user.description}}</p>
+        </div>
+      </div>
+      {{!-- segmento de Skills-tags --}}
+      <div class="conteiner" id="espacio_tags">
+        <div class="row row z-depth-1 white" class="col s12">
+          <h3> My Skills</h3>
+        </div>
+      </div>
+      {{!-- Conteiner para event & projects segmentos paralelos --}}
+      <div class="conteiner white">
+        <div class="row z-depth-2" id="cont_ev_y_pro">
+          {{!-- Events profile --}}
+          <div class="col s6 ">
+            <h3> Your Latest Event</h3>
+            <!-- Modal Trigger -->
+            <a class="waves-effect waves-light btn gray modal-trigger" href="#create-event">Create Event</a>
+            {{#each events as |event|}}
+            <div class="row">
+              <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                  <div class="card-content white-text">
+                    <span class="card-title"> {{event.title}} </span>
+                    <p>{{event.description}}</p>
+                  </div>
+                  <div class="card-action">
+                    <a class="waves-effect waves-light modal-trigger" href="/event/{{event._id}}/edit">edit</a>
+                    <a href="/event/{{event._id}}/delete">Delete</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+          {{! -- Projects --}}
+          <div class="row" id="cont_pro">
+            <div class="col s6 ">
+              <h3> Your Latest Project</h3>
+              <!-- Link a New Project-hbs  antes modal -->
+              <a class="waves-effect waves-light btn gray modal-trigger" href="/newProject">New Project</a>
+              {{#each projects as |project|}}
+              <div class="row">
+                <div class="col s12 m6">
+                  <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                      <span class="card-title"> {{project.title}} </span>
+                      <p>{{project.description}}</p>
+                    </div>
+                    <div class="card-action">
+                      <a class="waves-effect waves-light modal-trigger" href="/project/{{project._id}}/edit">edit</a>
+                      <a href="/project/{{project._id}}/delete">Delete</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> {{!-- fin container  event & projects   --}}
+    {{!-- Conteiner para posts & follows segmentos paralelos --}}
+    <div class="conteiner">
+      <div class="row" id="cont_post_y_foll">
+        {{! -- Followers --}}
         <div class="row">
-          <div class="col s12 m6">
-            <div class="card blue-grey darken-1">
-              <div class="card-content white-text">
-                <span class="card-title"> {{event.title}} </span>
-                <p>{{event.description}}</p>
-              </div>
-              <div class="card-action">
-                <a class="waves-effect waves-light modal-trigger" href="/event/{{event._id}}/edit">edit</a>
-                <a href="/event/{{event._id}}/delete">Delete</a>
-              </div>
-            </div>
+          <div class="col s3  offset-s3" id="cont_following">
+
+            <button class="waves-effect waves-light btn-large"
+              onclick="window.location.href = '/routes/##';">Followers</button>
           </div>
-        </div>
-        {{/each}}
-      </div>
-      {{! -- Projects --}}
-      <div class="row" id="cont_pro">
-        <div class="col s6 ">
-          <h3> Your Latest Project</h3>
-          <!-- Link a New Project-hbs  antes modal -->
-          <a class="waves-effect waves-light btn orange modal-trigger" href="/newProject">New Project</a>
-          {{#each projects as |project|}}
-          <div class="row">
-            <div class="col s12 m6">
-              <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                  <span class="card-title"> {{project.title}} </span>
-                  <p>{{project.description}}</p>
-                </div>
-                <div class="card-action">
-                  <a class="waves-effect waves-light modal-trigger" href="/project/{{project._id}}/edit">edit</a>
-                  <a href="/project/{{project._id}}/delete">Delete</a>
-                </div>
-              </div>
-            </div>
+
+          {{! -- Following --}}
+          <div class="col s3 offset-s1" id="cont_followers">
+            <button class="waves-effect waves-light btn-large"
+              onclick="window.location.href = '/routes/##';">Following</button>
           </div>
-          {{/each}}
+
         </div>
       </div>
-    </div>
-  </div>
-</div> {{!-- fin container  event & projects   --}}
-{{!-- Conteiner para posts & follows segmentos paralelos --}}
-<div class="conteiner">
-  <div class="row" id="cont_post_y_foll">
-    {{! -- Followers --}}
-    <div class="row">
-      <div class="col s6 " id="cont_following">
+    </div> {{!-- fin container  follow & following   --}}
 
-        <button class="waves-effect waves-light btn-large"
-          onclick="window.location.href = '/routes/##';">Followers</button>
+    <!-- Modal Structure Evento -->
+
+    <div class="modal" id="create-event">
+      <div class="modal-content">
+        <h1>Create</h1>
+        <form action="/event/create" method="POST">
+          <label for="name">Event Title</label>
+          <input type="text" name="title">
+          <label for="name">Event Description</label>
+          <input type="text" name="description">
+          <label for="location">Location</label>
+          <input id="lng" type="text" name="location[coordinates][0]" placeholder="longitud" hidden>
+          <input id="lat" type="text" name="location[coordinates][1]" placeholder="latitud" hidden>
+          <label for="address">Address</label>
+          <input id="address" type="text" name="location.address" placeholder="address" hidden>
+
+
+          <div id='map'></div>
+          <input type="submit" label="submit">
+        </form>
+
       </div>
-
-      {{! -- Following --}}
-      <div class="col s6 " id="cont_followers">
-        <button class="waves-effect waves-light btn-large"
-          onclick="window.location.href = '/routes/##';">Following</button>
-      </div>
-
     </div>
-  </div>
-</div> {{!-- fin container  follow & following   --}}
 
-<!-- Modal Structure Evento -->
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiZGl1cml2aiIsImEiOiJjanAxdjA2cTQwMGp1M2tvYzZmZGp3bWc3In0.4cZEyLkU2ikqx_wb4A1z8A';
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-99.160397, 19.408481],
+        zoom: 15
+      });
+      const geoCoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken
+      })
+      map.addControl(geoCoder)
+      geoCoder.on('results', (results) => {
+        document.querySelector('#address').value = results.features[0].place_name
+        document.querySelector('#lat').value = results.features[0].center[1];
+        document.querySelector('#lng').value = results.features[0].center[0];
+      });
+    </script>
 
-<div class="modal" id="create-event">
-  <div class="modal-content">
-    <h1>Create</h1>
-    <form action="/event/create" method="POST">
-      <label for="name">Event Title</label>
-      <input type="text" name="title">
-      <label for="name">Event Description</label>
-      <input type="text" name="description">
-      <label for="location">Location</label>
-      <input id="lng" type="text" name="location[coordinates][0]" placeholder="longitud" hidden>
-      <input id="lat" type="text" name="location[coordinates][1]" placeholder="latitud" hidden>
-      <label for="address">Address</label>
-      <input id="address" type="text" name="location.address" placeholder="address" hidden>
-
-
-      <div id='map'></div>
-      <input type="submit" label="submit">
-    </form>
 
   </div>
-</div>
 
-<script>
-  mapboxgl.accessToken = 'pk.eyJ1IjoiZGl1cml2aiIsImEiOiJjanAxdjA2cTQwMGp1M2tvYzZmZGp3bWc3In0.4cZEyLkU2ikqx_wb4A1z8A';
-  const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [-99.160397, 19.408481],
-    zoom: 15
-  });
-  const geoCoder = new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken
-  })
-  map.addControl(geoCoder)
-  geoCoder.on('results', (results) => {
-    document.querySelector('#address').value = results.features[0].place_name
-    document.querySelector('#lat').value = results.features[0].center[1];
-    document.querySelector('#lng').value = results.features[0].center[0];
-  });
-</script>
-
-
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    let elements = document.querySelectorAll('.modal');
-    let ins = M.Modal.init(elements);
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let elements = document.querySelectorAll('.modal');
+      let ins = M.Modal.init(elements);
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems, {});
+    });
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems, {});
-  });
-  var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems, {});
-  //para las chips
-  var elems = document.querySelectorAll('.chips-m');
-  var instances = M.Chips.init(elems, {
-    data: [],
-    limit: 20,
-    onChipAdd: () => {
-    },
-    placeholder: "Add your skills",
-    secondaryPlaceholder: "skill",
-    autocompleteOptions: {
-      data: {
-        'javascript': null,
-        'javier': null,
+    //para las chips
+    var elems = document.querySelectorAll('.chips-m');
+    var instances = M.Chips.init(elems, {
+      data: [],
+      limit: 20,
+      onChipAdd: () => {
       },
-      limit: Infinity,
-      minLength: 1
-    }
-  });
-</script>
-<script>
-  document.querySelector('input[name="photoURL"]').addEventListener('change', (e) => {
-    document.querySelector('label.custom-file-label span').innerText = e.target.files[0].name
-  });
-</script>
+      placeholder: "Add your skills",
+      secondaryPlaceholder: "skill",
+      autocompleteOptions: {
+        data: {
+          'javascript': null,
+          'javier': null,
+        },
+        limit: Infinity,
+        minLength: 1
+      }
+    });
+  </script>
+  <script>
+    document.querySelector('input[name="photoURL"]').addEventListener('change', (e) => {
+      document.querySelector('label.custom-file-label span').innerText = e.target.files[0].name
+    });
+  </script>
